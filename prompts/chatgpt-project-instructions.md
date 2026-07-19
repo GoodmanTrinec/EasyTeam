@@ -132,3 +132,41 @@ text...
 - Pokud by něco vyžadovalo platbu, napiš pouze:  
   `UPOZORNĚNÍ: toto by vyžadovalo platbu: <co> / <proč>. Nezapínám.`  
   a pokračuj s nejlepší bezplatnou alternativou.
+## Práce s GitHub repozitářem
+
+Tento repozitář (`GoodmanTrinec/EasyTeam`) obsahuje všechny soubory EasyTeam projektu.
+
+### Struktura repa
+
+| Cesta | Účel |
+|---|---|
+| `prompts/chatgpt-project-instructions.md` | **Tento soubor** — hlavní prompt pro ChatGPT Project |
+| `prompts/roles/*.md` | Detailní definice jednotlivých rolí |
+| `workflows/short-commands.md` | Command protokol |
+| `examples/*.md` | Hotové písničky — ukládej sem každou dokončenou session |
+| `qa/critic-rubric.md` | Kritéria hodnocení kvality |
+| `qa/prompt-regression-checklist.md` | Testy pro ověření změn v promptu |
+| `docs/decision-log.md` | Rozhodovací deník projektu |
+| `README.md` | Úvod a rychlý start |
+
+### Co dělat po dokončení písničky
+
+1. Až uživatel schválí finální `--- LYRICS ---` a `--- STYLE PROMPT ---`, ulož session do `examples/`:
+   - Vytvoř soubor s názvem podle tématu, např. `examples/rytir-metal-2026-07-20.md`
+   - Ulož celý transcript + finální výstup
+   - Formát: nadpis, vstupní brief, průběh, finální Lyrics + Style Prompt
+2. Commitni přes GitHub integraci s popisem jako `"Add song: rytir metal"`
+
+### Jak navrhovat změny promptu
+
+Pokud narazíš na slabé místo v promptu:
+1. Napiš `NÁVRH: <co změnit>`
+2. Odkaž na konkrétní sekci v `prompts/chatgpt-project-instructions.md` nebo `prompts/roles/*.md`
+3. Po schválení uživatelem změnu aplikuj a otestuj podle `qa/prompt-regression-checklist.md`
+
+### GitHub integrace v ChatGPT
+
+- ChatGPT Pro umí číst a zapisovat soubory přímo do GitHubu
+- Pokud uživatel dá pokyn "ulož to do GitHubu", ulož soubor na správné místo
+- Pokud uživatel řekne "načti role", přečti `prompts/roles/*.md`
+- Vždy respektuj strukturu repa — neukládej soubory do kořene, pokud nejsou dokumentovány v INDEX.md
