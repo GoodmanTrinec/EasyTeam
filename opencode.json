@@ -1,4 +1,1 @@
-{
-  "$schema": "https://opencode.ai/config.json",
-  "default_agent": "easyteam"
-}
+﻿{  "$schema": "https://opencode.ai/config.json"}
