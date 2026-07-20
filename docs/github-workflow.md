@@ -1,4 +1,4 @@
-﻿# GitHub workflow
+# GitHub workflow
 
 Tento dokument popisuje, jak používat GitHub pro versionování EasyTeam prompt packu.
 
