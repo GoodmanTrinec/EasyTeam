@@ -1,24 +1,24 @@
-﻿# EasyTeam
+# EasyTeam
 
 EasyTeam je markdown prompt-pack pro ChatGPT Project. Slouží k tvorbě písní pro Suno pomocí více specializovaných rolí a low-typing workflow.
 
 ## Stručná historie projektu
 
-EasyTeam vznikl jako praktický způsob tvorby písní pro Suno. Původně šlo o jednoduchý postup: uživatel zadal téma, hudební styl a jazyk a AI vytvořila text písně.
+EasyTeam vznikl jako praktický způsob tvorby písní pro Suno. Původně šlo o jednoduchý postup: UŽIVATEL zadal téma, hudební styl a jazyk a AI vytvořila text písně.
 
 Brzy se však ukázalo, že jedna odpověď často nestačí. Text mohl mít slabé rýmy, nevyrovnaný rytmus, příliš obecné obraty nebo hudební styl, který přesně neodpovídal zamýšlené atmosféře.
 
 Proto se práce rozdělila mezi několik specializovaných rolí:
 
-- **Hudebník** navrhuje žánr, tempo, nástroje, náladu, strukturu skladby a způsob vedení vokálu.
-- **Básník** píše text a soustředí se na rýmy, rytmus, emoce a zpěvnost.
-- **Prompt specialista** připravuje hudební zadání pro Suno.
-- **Kritik** hledá slabá místa, kontroluje rýmy, rytmus, zpěvnost a gramatickou správnost.
-- **Moderátor** řídí jednotlivá kola a hlídá, aby každá nová verze byla skutečně lepší.
+- **HUDEBNÍK** navrhuje žánr, tempo, nástroje, náladu, strukturu skladby a způsob vedení vokálu.
+- **BÁSNÍK** píše text a soustředí se na rýmy, rytmus, emoce a zpěvnost.
+- **PROMPTER** připravuje hudební zadání pro Suno.
+- **KRITIK** hledá slabá místa, kontroluje rýmy, rytmus, zpěvnost a gramatickou správnost.
+- **MODERÁTOR** řídí jednotlivá kola a hlídá, aby každá nová verze byla skutečně lepší.
 - **COVERMASTER** vytváří finální S-cover až po schválení Lyrics, Style Promptu a názvu písně.
-- **Uživatel** určuje téma, počet kol, jazyk, styl, název a konečný směr skladby.
+- **UŽIVATEL** určuje téma, počet kol, jazyk, styl, název a konečný směr skladby.
 
-Tak vznikl systém tvůrčích kol. Na začátku každého kola Moderátor shrne aktuální text a hudební styl. Hudebník, Básník a Kritik spolupracují na lepší verzi. COVERMASTER se těchto skladatelských kol neúčastní; aktivuje se až po finálním schválení písně.
+Tak vznikl systém tvůrčích kol. Na začátku každého kola MODERÁTOR shrne aktuální text a hudební styl. HUDEBNÍK, BÁSNÍK a KRITIK spolupracují na lepší verzi. COVERMASTER se těchto skladatelských kol neúčastní; aktivuje se až po finálním schválení písně.
 
 Finální workflow je:
 
@@ -39,18 +39,18 @@ COVERMASTER nesmí měnit význam příběhu ani vytvářet falešně pozitivní
 
 - Výchozí text: `TITLE AND ARTIST_IF_EXISTS AND AUTHOR_IF_EXISTS`
 - Název písně je vždy zahrnut.
-- Interpret se uvádí pouze tehdy, pokud ho uživatel zadal.
-- Autor se uvádí pouze tehdy, pokud ho uživatel zadal.
-- Pokud uživatel dodá vlastní text pro cover, tento text nahradí celou výchozí sadu textů.
+- Interpret se uvádí pouze tehdy, pokud ho UŽIVATEL zadal.
+- Autor se uvádí pouze tehdy, pokud ho UŽIVATEL zadal.
+- Pokud UŽIVATEL dodá vlastní text pro cover, tento text nahradí celou výchozí sadu textů.
 - Při vlastním textu použij přesně dodaný text a nepřidávej nic dalšího.
 
-## Role Kritika
+## Role KRITIK
 
-Kritik je hlavním kontrolorem rýmů, rytmu, zpěvnosti a jazykové správnosti. Nesmí schválit text se slabými, falešnými nebo násilnými rýmy.
+KRITIK je hlavním kontrolorem rýmů, rytmu, zpěvnosti a jazykové správnosti. Nesmí schválit text se slabými, falešnými nebo násilnými rýmy.
 
 ### Kontrola rýmů
 
-Kritik musí v každém kole samostatně zkontrolovat kvalitu rýmů. Nehodnotí pouze to, zda se poslední slova podobají. Ověřuje také:
+KRITIK musí v každém kole samostatně zkontrolovat kvalitu rýmů. Nehodnotí pouze to, zda se poslední slova podobají. Ověřuje také:
 
 - zda jsou rýmy skutečné a zvukově přesvědčivé,
 - zda nejsou násilné, gramaticky nepřirozené nebo vytvořené pouze kvůli koncovce,
@@ -69,13 +69,13 @@ Doporučené struktury jsou například:
 
 Volný verš nesmí být vydáván za rýmovaný text.
 
-Pokud je rým slabý, přibližný, opakovaný nebo vytvořený na úkor významu, Kritik musí označit konkrétní dvojici řádků a požadovat její přepracování.
+Pokud je rým slabý, přibližný, opakovaný nebo vytvořený na úkor významu, KRITIK musí označit konkrétní dvojici řádků a požadovat její přepracování.
 
 Text nemůže být schválen pouze proto, že obsahuje správnou myšlenku. Musí zároveň fungovat rytmicky, zvukově a při zpěvu.
 
 ### Kontrola skloňování a časování
 
-Kritik kontroluje také správné skloňování a časování slov. Nesmí schválit rým, který vznikl použitím:
+KRITIK kontroluje také správné skloňování a časování slov. Nesmí schválit rým, který vznikl použitím:
 
 - nesprávného pádu,
 - nesprávného rodu,
@@ -90,15 +90,15 @@ Rým nesmí být vytvořen za cenu gramatické chyby nebo nepřirozené formulac
 
 ## Základní pravidla EasyTeam
 
-- Moderátor zahajuje každé kolo shrnutím aktuálního textu a hudebního stylu.
+- MODERÁTOR zahajuje každé kolo shrnutím aktuálního textu a hudebního stylu.
 - Každé další kolo musí přinést skutečné zlepšení.
-- Kritik uvádí konkrétní chyby a konkrétní místa k opravě.
+- KRITIK uvádí konkrétní chyby a konkrétní místa k opravě.
 - Rýmy musí být skutečné, přirozené a zpěvné.
 - Gramatika a správné tvary slov mají stejnou váhu jako samotný rým.
 - Text a hudební styl se odevzdávají odděleně.
 - COVERMASTER se aktivuje až po schválení Lyrics, Style Promptu a názvu písně.
 - Finální výstup musí obsahovat čisté **Lyrics**, samostatný **Style Prompt**, sekci **COVERMASTER** a finální **S-cover**.
-- Uživatel má konečné slovo a určuje směr skladby.
+- UŽIVATEL má konečné slovo a určuje směr skladby.
 
 ## Rychlý start
 
@@ -118,13 +118,13 @@ Rým nesmí být vytvořen za cenu gramatické chyby nebo nepřirozené formulac
 | Cesta | Obsah |
 |---|---|
 | `prompts/chatgpt-project-instructions.md` | **Hlavní prompt** — vlož do ChatGPT Project Instructions |
-| `prompts/roles/moderator.md` | Role Moderátora |
-| `prompts/roles/poet.md` | Role Básníka |
-| `prompts/roles/musician.md` | Role Hudebníka |
-| `prompts/roles/prompt-specialist.md` | Role Prompt specialisty |
-| `prompts/roles/critic.md` | Role Kritika |
-| `prompts/roles/covermaster.md` | Role COVERMASTERa |
-| `prompts/roles/user.md` | Role Uživatele |
+| `prompts/roles/moderator.md` | Role MODERÁTOR |
+| `prompts/roles/poet.md` | Role BÁSNÍK |
+| `prompts/roles/musician.md` | Role HUDEBNÍK |
+| `prompts/roles/prompter.md` | Role PROMPTER |
+| `prompts/roles/critic.md` | Role KRITIK |
+| `prompts/roles/covermaster.md` | Role COVERMASTER |
+| `prompts/roles/user.md` | Role UŽIVATEL |
 | `workflows/short-commands.md` | Protokol krátkých příkazů (0-9, ano/ne) |
 | `examples/*.md` | Ukázkové session |
 | `qa/critic-rubric.md` | Kritéria hodnocení kvality |
@@ -160,7 +160,7 @@ Rým nesmí být vytvořen za cenu gramatické chyby nebo nepřirozené formulac
 
 - [Hlavní prompt](prompts/chatgpt-project-instructions.md)
 - [Seznam příkazů](workflows/short-commands.md)
-- [Kritik rubric](qa/critic-rubric.md)
+- [KRITIK rubric](qa/critic-rubric.md)
 - [Regresní checklist](qa/prompt-regression-checklist.md)
 - [Ukázkové session](examples/czech-folk-metal-low-typing.md)
 - [GitHub workflow](docs/github-workflow.md)
