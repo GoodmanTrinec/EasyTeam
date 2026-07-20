@@ -1,4 +1,4 @@
-﻿﻿# EasyTeam — Index projektu
+﻿# EasyTeam — Index projektu
 
 EasyTeam je **markdown prompt-pack pro ChatGPT Pro**, ne aplikace.  
 Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem psaní.

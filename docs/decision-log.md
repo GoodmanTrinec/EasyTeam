@@ -1,4 +1,4 @@
-﻿# Decision Log — rozhodovací deník
+# Decision Log — rozhodovací deník
 
 Tento deník zaznamenává klíčová rozhodnutí o směřování EasyTeam projektu.
 
