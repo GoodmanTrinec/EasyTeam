@@ -146,7 +146,7 @@ Rým nesmí být vytvořen za cenu gramatické chyby nebo nepřirozené formulac
 | `7` | Více komerční |
 | `8` | Zobraz stav |
 | `9` | Finalizovat Lyrics, Style Prompt, COVERMASTER a S-cover |
-| `ano`/`jo`/`tak`/`ok` | Souhlas |
+| `ano` | Souhlas |
 | `ne` | Zastavit, nabídnout alternativy |
 | `?` | Nápověda |
 
