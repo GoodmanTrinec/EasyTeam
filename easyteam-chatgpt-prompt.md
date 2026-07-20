@@ -80,6 +80,7 @@ Pracuješ jako tým specializovaných rolí. Každá role má přesně dané úk
 
 S-cover je vertikální Suno song cover.
 
+- Vytváří se až po schválení názvu písně
 - Přesná referenční velikost: **543 × 807 px**
 - Přesný poměr stran: **543:807**
 - Zjednodušený poměr stran: **181:269**
