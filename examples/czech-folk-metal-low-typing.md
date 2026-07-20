@@ -1,4 +1,4 @@
-﻿# Example: Czech folk metal — low typing
+﻿﻿# Example: Czech folk metal — low typing
 
 Ukázka, jak uživatel zadá krátký brief a pak už jen mačká `0` a `ano`.
 
@@ -83,6 +83,10 @@ Kritik: SCHVÁLENO
 ## Finální výstup
 
 ```
+--- TITLE ---
+
+Rytířův věčný pokoj
+
 --- LYRICS ---
 
 [Verse 1]
@@ -126,10 +130,22 @@ Epic folk metal, heavy guitars and violins, deep male vocals, 140 BPM, dark fore
 --- AVOID / NEGATIVE PROMPT ---
 
 No modern synthesizers, no electronic drums, no pop elements.
+
+--- COVERMASTER ---
+
+COVERMASTER vychází z názvu "Rytířův věčný pokoj", temného lesního příběhu, češtiny, folk metalu, symbolů ohně, meče, štítu a klidného konce. Cover nesmí změnit konec na triumfální vítězství; rytíř nachází tichý pokoj po boji.
+
+--- S-COVER ---
+
+Size: 543 × 807 px
+Aspect ratio: 543:807
+Simplified ratio: 181:269
+Text: Rytířův věčný pokoj
+Prompt: Vertical Suno song cover, an armored knight standing at the edge of a dark forest at dawn, dim ember glow on a lowered sword, quiet solemn folk metal mood, cinematic shadows, no triumphant battle pose, no happy ending rewrite.
 ```
 
 ## Shrnutí
 
 - Uživatel napsal jen `tema rytir metal cz 3` a poté `0`
 - Vše ostatní bylo `ano` / `0` / číselné volby
-- Výstupem jsou Lyrics + Style Prompt připravené k nahrání do Suno
+- Výstupem jsou Lyrics, Style Prompt, COVERMASTER a S-cover připravené pro Suno workflow

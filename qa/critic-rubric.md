@@ -1,6 +1,6 @@
-﻿# Kritik Rubric — hodnoticí kritéria kvality písně
+﻿﻿# Kritik Rubric — hodnoticí kritéria kvality písně
 
-Tento rubric definuje, jak Kritik hodnotí text písně a Style Prompt.  
+Tento rubric definuje, jak Kritik hodnotí text písně, Style Prompt a finální návaznost na S-cover.  
 Každá kategorie obsahuje **PASS** a **FAIL** příklady. Kritik musí vždy uvést konkrétní řádky.
 
 ---
@@ -93,6 +93,19 @@ Každá kategorie obsahuje **PASS** a **FAIL** příklady. Kritik musí vždy uv
 
 **FAIL:** Opotřebované fráze.
 - `"Láska jako trám / Nehne se ani o krok"` — okoukané
+
+---
+
+## 9. S-cover readiness
+
+**PASS:** Finální výstup obsahuje jasný název, čitelný příběh, hudební styl, emoce, symboly a skutečný konec, takže COVERMASTER může vytvořit věrný S-cover.
+- `Název: Poslední hlídka`, lyrics končí tichým smířením a S-cover používá tmavou noční stráž, ne oslavný vítězný motiv.
+
+**FAIL:** Text nebo finále nedává COVERMASTERovi dost informací, nebo cover mění význam příběhu.
+- Píseň končí ztrátou, ale S-cover navrhuje slunečný triumf a šťastné shledání.
+- S-cover používá poměr `443:591` nebo obecný `3:4` místo `543:807`.
+
+**Kritik / COVERMASTER musí:** Při finále hlídat, že S-cover zachovává příběh, používá přesnou velikost `543 × 807 px`, poměr `543:807`, zjednodušený poměr `181:269` a správná pravidla textu.
 
 ---
 

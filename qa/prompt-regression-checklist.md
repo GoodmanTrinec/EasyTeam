@@ -1,4 +1,4 @@
-﻿# Prompt Regression Checklist
+﻿﻿# Prompt Regression Checklist
 
 Tento checklist slouží k ověření, že změny v promptech nenarušily chování EasyTeam.
 Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují žádné placené API.
@@ -57,14 +57,14 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 ---
 
-## Test 5 — Lyrics / Style Prompt separation
+## Test 5 — Full final workflow separation
 
 **Vstup:** Nech EasyTeam dokončit píseň a požádej o finále (`9`).
 
-**Očekávání:** Výstup obsahuje `--- LYRICS ---` a `--- STYLE PROMPT ---` jako samostatné sekce.
+**Očekávání:** Výstup obsahuje `--- LYRICS ---`, `--- STYLE PROMPT ---`, `--- COVERMASTER ---` a `--- S-COVER ---` jako samostatné sekce v pořadí `LYRICS → STYLE PROMPT → COVERMASTER → S-COVER`.
 
-**PASS:** Obě sekce jsou přítomny a odděleny.  
-**FAIL:** Chybí jedna ze sekcí nebo jsou smíchané.
+**PASS:** Všechny čtyři sekce jsou přítomny, odděleny a ve správném pořadí.  
+**FAIL:** Chybí COVERMASTER nebo S-cover, nebo výstup končí pouze u dvousekčního finále bez coveru.
 
 ---
 
@@ -142,3 +142,58 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 **PASS:** EasyTeam přijme `jo` jako souhlas a pokračuje.  
 **FAIL:** EasyTeam nerozumí nebo se ptá, co `jo` znamená.
+
+---
+
+## Test 13 — COVERMASTER activation timing
+
+**Vstup:** `tema rytir metal cz 2` → `0`; během kola požádej o cover před schválením finálních Lyrics, Style Promptu a názvu.
+
+**Očekávání:** EasyTeam nespustí COVERMASTER během skladatelských kol. Vysvětlí krátce, že COVERMASTER přijde až po schválení Lyrics, Style Promptu a názvu písně.
+
+**PASS:** COVERMASTER se neúčastní kol Moderátor/Hudebník/Básník/Kritik a aktivuje se až po finálním schválení.  
+**FAIL:** COVERMASTER navrhuje cover během tvorby textu nebo mění Lyrics/Style Prompt.
+
+---
+
+## Test 14 — S-cover dimensions and ratios
+
+**Vstup:** Po finále (`9`) zkontroluj `--- S-COVER ---`.
+
+**Očekávání:** S-cover uvádí přesnou velikost `543 × 807 px`, poměr `543:807` a zjednodušený poměr `181:269`.
+
+**PASS:** Všechny tři hodnoty jsou uvedeny a staré poměry `443:591` a obecný `3:4` jsou odmítnuty jako neplatné.  
+**FAIL:** Výstup používá `443:591`, obecný `3:4`, nebo chybí přesná velikost.
+
+---
+
+## Test 15 — S-cover custom text replacement
+
+**Vstup:** Před finále zadej vlastní text pro cover: `Cover text: ONLY THIS LINE`.
+
+**Očekávání:** S-cover použije přesně `ONLY THIS LINE` jako celý text na coveru.
+
+**PASS:** S-cover nepřidá název, interpreta, autora ani žádný další text.  
+**FAIL:** EasyTeam přidá title/artist/author k vlastnímu textu nebo text upraví.
+
+---
+
+## Test 16 — S-cover story consistency
+
+**Vstup:** Vytvoř píseň se smutným nebo tragickým koncem a požádej o finále (`9`).
+
+**Očekávání:** COVERMASTER zachová skutečný konec příběhu a nevytvoří falešně pozitivní vizuální interpretaci.
+
+**PASS:** Cover prompt odpovídá emocím, symbolům a závěru lyrics.  
+**FAIL:** Cover prompt změní význam příběhu, přidá šťastný konec nebo ignoruje klíčový symbol.
+
+---
+
+## Test 17 — Reference image is size-only
+
+**Vstup:** Dodej obrázek pouze jako referenci velikosti nebo poměru stran a požádej o S-cover.
+
+**Očekávání:** COVERMASTER použije pouze velikost/poměr, ne vizuální obsah obrázku.
+
+**PASS:** Výstup výslovně nekopíruje kompozici, objekty, styl ani obsah size-only reference.  
+**FAIL:** COVERMASTER popíše nebo napodobí referenční obrázek jako vizuální zadání.

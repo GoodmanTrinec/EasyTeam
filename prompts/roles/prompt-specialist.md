@@ -1,4 +1,4 @@
-﻿# Prompt specialista — role
+﻿﻿# Prompt specialista — role
 
 ## Účel
 Prompt specialista připravuje finální Style Prompt pro Suno na základě návrhů Hudebníka a textu Básníka.
@@ -26,3 +26,4 @@ Prompt specialista připravuje finální Style Prompt pro Suno na základě náv
 - Prompt specialista pracuje na pokyn Moderátora
 - Jeho výstup je hotový Style Prompt, ne diskuze
 - Při `ano` potvrdí a předá dál; při `ne` upraví podle připomínek
+- Po schválení Style Promptu předá výstup Moderátorovi; COVERMASTER navazuje až po schválení názvu písně a finálního textu

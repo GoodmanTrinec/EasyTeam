@@ -1,4 +1,4 @@
-﻿# Example: Pop ballad — yes/no workflow
+﻿﻿# Example: Pop ballad — yes/no workflow
 
 Ukázka, jak uživatel pracuje převážně s `ano`/`ne` a číselnými volbami.
 
@@ -80,6 +80,10 @@ User: 0
 ## Final output
 
 ```
+--- TITLE ---
+
+Still Hear Your Name
+
 --- LYRICS ---
 
 [Verse 1]
@@ -118,6 +122,18 @@ Your name... (fade)
 --- STYLE PROMPT ---
 
 Soft pop ballad, piano and strings, gentle female vocals, 80 BPM, intimate night atmosphere with emotional crescendo in the bridge.
+
+--- COVERMASTER ---
+
+COVERMASTER reads the title "Still Hear Your Name", the English lyrics, the intimate pop ballad style, rain/window imagery, memory, regret and an unresolved emotional ending. The cover should stay melancholic and should not turn the story into a happy reunion.
+
+--- S-COVER ---
+
+Size: 543 × 807 px
+Aspect ratio: 543:807
+Simplified ratio: 181:269
+Text: Still Hear Your Name
+Prompt: Vertical Suno song cover, rainy night window, soft reflected city lights, a faded photo and scarf on a piano, intimate melancholic pop ballad atmosphere, gentle cinematic lighting, no cheerful reunion scene.
 ```
 
 ## Shrnutí

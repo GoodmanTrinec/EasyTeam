@@ -7,7 +7,7 @@ I treated this as open-ended and chose best-practice defaults for you: EasyTeam 
 What you get:
 - A clean repo structure for EasyTeam as a reusable prompt-engineering project.
 - A full ChatGPT Project Instructions prompt designed for low-typing use.
-- Modular role prompts for Moderátor, Básník, Hudebník, Prompt specialista, Kritik.
+- Modular role prompts for Moderátor, Básník, Hudebník, Prompt specialista, Kritik, COVERMASTER, and Uživatel.
 - AUTO mode and ultra-short command protocol.
 - A critic rubric for rhyme, rhythm, grammar, singability, and Suno style prompt quality.
 - Example sessions proving the system works with mostly `ano/ne` and numeric choices.
@@ -18,7 +18,7 @@ Decisions I made for you:
 - **No paid API/model**: only your existing ChatGPT Pro, free/local Ollama, GitHub, and markdown files are allowed.
 - **No UI/app v1**: first deliverable is a prompt pack because the current gap is workflow quality, not buttons.
 - **Default interaction**: `0` runs AUTO; `ano` and natural variants like `jo`, `jj`, `tak`, `ok`, `dobra`, `yes` accept defaults; `ne` stops or asks for a simple alternative; `1/2/3` selects visible options. Numeric precedence rule: if EasyTeam has just shown numbered choices and is waiting for an answer, a bare number selects that choice; otherwise it is interpreted as a global command.
-- **Default workflow**: two improvement rounds, then final Lyrics + Style Prompt unless you continue.
+- **Default workflow**: two improvement rounds, then final Lyrics, Style Prompt, COVERMASTER, and S-cover unless you continue.
 - **Default languages**: user-facing Czech/Slovak/Polish/English tolerant, including local dialect `po naszymu`; Suno Style Prompt always English.
 - **Copyright safety**: named artist requests are converted into musical attributes, not imitation.
 - **Notes/journal**: GitHub is primary. Project decisions, prompt versions, changelog, and reusable documentation live in committed markdown files. `.omo/` is only local scratch/planning state.
@@ -56,14 +56,14 @@ Risk: low. This is documentation/prompt architecture. Main risk is prompt verbos
 - Do not introduce any paid API, paid model, pay-per-token service, paid local model license, or second AI subscription.
 - Do not ask the user to approve payment. If something would require payment, emit only: `UPOZORNĚNÍ: toto by vyžadovalo platbu: <co> / <proč>. Nezapínám.` and continue free.
 - Do not make the user type long setup phrases.
-- Do not remove the project’s core identity: EasyTeam is a multi-agent Suno songwriting workflow with Lyrics + Style Prompt output.
+- Do not remove the project’s core identity: EasyTeam is a multi-agent Suno songwriting workflow with Lyrics, Style Prompt, COVERMASTER, and S-cover output.
 - Do not claim automated Suno integration.
 - Do not store private personal data or a named personality profile in GitHub; keep only generic interaction rules needed for the project.
 
 ### Evidence references
 
 - `README.md:5-16` defines EasyTeam as a multi-agent song workflow and lists roles.
-- `README.md:20-24` requires separate Lyrics and Style Prompt outputs.
+- `README.md` requires the full final workflow: Lyrics, Style Prompt, COVERMASTER, and S-cover.
 - `README.md:25` introduces Easy Team / AUTO mode.
 - `README.md:27` says each round must create real improvement.
 - `README.md:33-79` defines the critic’s rhyme, rhythm, grammar, and morphology checks.
@@ -76,7 +76,7 @@ Risk: low. This is documentation/prompt architecture. Main risk is prompt verbos
 Testing strategy: **tests-after / prompt QA fixtures**, because this is a prompt/documentation project, not executable code.
 
 Every implementation todo must include:
-- Happy-path QA: a sample low-typing session reaches final Lyrics + Style Prompt.
+- Happy-path QA: a sample low-typing session reaches final Lyrics, Style Prompt, COVERMASTER, and S-cover.
 - Failure-path QA: a bad/underspecified input causes EasyTeam to ask one short numbered or yes/no question, not a long form.
 - Evidence path: a markdown example or checklist entry under `examples/` or `qa/`.
 
@@ -84,7 +84,7 @@ Global verification commands/checks for the worker:
 - `Get-ChildItem -Recurse -File -Include *.md | Select-Object FullName` to enumerate all markdown files.
 - `Get-ChildItem -Recurse -File -Include *.md | Select-String -Pattern "paid API","paid model","pay-per-token","OpenAI API","Claude API","Gemini API"` and confirm any matches appear only as prohibited-cost guardrails.
 - `Get-ChildItem examples -File -Filter *.md | Select-String -Pattern "Moderátore, zahaj kolo 1"` should return no required-use examples; if it appears, it must be explicitly marked as not required.
-- `Get-ChildItem examples -File -Filter *.md | Select-String -Pattern "--- LYRICS ---","--- STYLE PROMPT ---"` confirms final-output examples include both required sections.
+- `Get-ChildItem examples -File -Filter *.md | Select-String -Pattern "--- LYRICS ---","--- STYLE PROMPT ---","--- COVERMASTER ---","--- S-COVER ---"` confirms final-output examples include all required sections.
 - `Select-String -Path qa/*.md -Pattern "weak rhyme","forced rhyme","low-typing","one short"` confirms QA includes at least one weak-rhyme failure case and one low-typing pass case.
 
 ## Execution strategy
@@ -125,7 +125,7 @@ Dependency matrix:
 
 References:
 - Current repo has only `README.md` and `easyteam-chatgpt-prompt.md` besides `.git`.
-- `README.md:20-24` defines the two core deliverables: Lyrics and Style Prompt.
+- `README.md` defines the full final workflow: Lyrics, Style Prompt, COVERMASTER, and S-cover.
 
 Implementation:
 - Create these folders exactly: `prompts/`, `prompts/roles/`, `workflows/`, `examples/`, `qa/`, `docs/`.
@@ -168,7 +168,7 @@ Implementation:
   - `6` = more emotional.
   - `7` = more commercial/catchy.
   - `8` = show current state.
-  - `9` = final Lyrics + Style Prompt.
+  - `9` = final Lyrics, Style Prompt, COVERMASTER, and S-cover.
   - `ano` = accept recommended default and continue.
   - `jo`, `jj`, `tak`, `ok`, `dobra`, `yes`, and clear local equivalents = same as `ano`.
   - `ne` = stop current path and offer 3 alternatives.
@@ -194,7 +194,7 @@ Commit line:
 ### Todo 3: `prompts/roles/*.md`: Split all EasyTeam roles into modular prompts - expect reusable role contracts
 
 References:
-- `README.md:11-16` lists Hudebník, Básník, Prompt specialista, Kritik, Moderátor, Uživatel.
+- `README.md` lists Hudebník, Básník, Prompt specialista, Kritik, Moderátor, COVERMASTER, and Uživatel.
 - `easyteam-chatgpt-prompt.md:13-52` contains current combined role descriptions.
 
 Implementation:
@@ -204,6 +204,7 @@ Implementation:
   - `prompts/roles/musician.md`
   - `prompts/roles/prompt-specialist.md`
   - `prompts/roles/critic.md`
+  - `prompts/roles/covermaster.md`
   - `prompts/roles/user.md`
 - Each role file must include: purpose, inputs, outputs, must-do, must-not-do, low-typing behavior.
 - Moderator must own state, command interpretation, one-question-at-a-time flow, and final assembly.
@@ -228,7 +229,7 @@ Commit line:
 
 References:
 - `README.md:33-79` defines critic responsibilities for rhyme, rhythm, grammar, morphology, and natural language.
-- `README.md:83-92` says critic must provide concrete errors and final output must include Lyrics + Style Prompt.
+- `README.md` says critic must provide concrete errors and final output must include Lyrics, Style Prompt, COVERMASTER, and S-cover.
 
 Implementation:
 - Add `qa/critic-rubric.md`.
@@ -281,7 +282,7 @@ Acceptance criteria:
 - A user can paste the file into ChatGPT Project Instructions directly.
 - `0` starts AUTO when enough context exists.
 - If context is missing, the prompt asks one short numbered question.
-- Final output is Suno-ready and split into Lyrics and Style Prompt.
+- Final output is Suno-ready and split into Lyrics, Style Prompt, COVERMASTER, and S-cover.
 
 QA:
 - Happy path manual ChatGPT check: create/use a ChatGPT Project with `prompts/chatgpt-project-instructions.md` pasted into Project Instructions, submit `tema rytir metal cz 3` then `0`; expected assertion: response starts EasyTeam/AUTO round without requiring `Moderátore, zahaj kolo 1`.
@@ -309,7 +310,7 @@ Implementation:
 - At least one example must start with a compact brief plus `0`.
 - At least one example must show mostly `ano/ne` and numeric choices.
 - At least one example must show only `0` in an empty context and the one-question recovery behavior.
-- Each example must end with `Lyrics` and `Style Prompt` or explain why it is an intermediate state.
+- Each example must end with `Lyrics`, `Style Prompt`, `COVERMASTER`, and `S-cover` or explain why it is an intermediate state.
 
 Acceptance criteria:
 - There are at least 3 example files.
@@ -337,7 +338,7 @@ Implementation:
   - Low-typing compliance.
   - Role separation.
   - Critic strictness.
-  - Lyrics/Style Prompt separation.
+  - Lyrics/Style Prompt/COVERMASTER/S-cover separation.
   - English Style Prompt.
   - No paid API/model suggestion.
   - No artist cloning.
@@ -421,7 +422,7 @@ Run these after all todos are complete. All must pass before claiming done.
 ### F3 Low-typing manual simulation
 
 - Simulate at least two sessions from `examples/` using only the transcript and expected behavior.
-- Confirm each reaches or correctly approaches Lyrics + Style Prompt.
+- Confirm each reaches or correctly approaches Lyrics, Style Prompt, COVERMASTER, and S-cover.
 - Commands: `Get-Content examples/czech-folk-metal-low-typing.md`; `Get-Content examples/empty-zero-recovery.md`; compare transcript steps to expected assertions in each file and record pass/fail.
 - Optional ChatGPT Pro check, if available without payment/API: paste `prompts/chatgpt-project-instructions.md` into a ChatGPT Project and run the same two example inputs; record screenshots or copied transcript snippets in the evidence file.
 - Evidence path: `qa/final-low-typing-simulation.md`.
@@ -454,7 +455,7 @@ Run these after all todos are complete. All must pass before claiming done.
 
 - User can open README, copy one prompt into ChatGPT Project Instructions, and start with compact input plus `0`.
 - User can continue with mostly `ano/ne` or numbers.
-- EasyTeam still produces two separate final outputs: Lyrics and English Style Prompt.
+- EasyTeam produces the full final workflow: Lyrics, English Style Prompt, COVERMASTER, and S-cover.
 - Kritik remains strict about rhymes, rhythm, grammar, and singability.
 - No paid API/model is introduced, recommended, or required beyond the user’s existing ChatGPT Pro.
 - Repo contains reusable prompt artifacts, examples, QA checklists, and GitHub workflow docs.

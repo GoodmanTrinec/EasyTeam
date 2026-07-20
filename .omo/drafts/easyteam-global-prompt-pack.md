@@ -13,10 +13,10 @@ User wants EasyTeam thought through globally and turned into a whole project wit
 
 ## Evidence
 
-- `README.md` lines 5-16 define EasyTeam as a multi-agent Suno songwriting workflow with roles Hudebník, Básník, Prompt specialista, Kritik, Moderátor, Uživatel.
-- `README.md` lines 20-24 define final outputs as separate Lyrics and Style prompt.
+- `README.md` defines EasyTeam as a multi-agent Suno songwriting workflow with roles Hudebník, Básník, Prompt specialista, Kritik, Moderátor, COVERMASTER, and Uživatel.
+- `README.md` defines the current final workflow as Lyrics, Style Prompt, COVERMASTER, and S-cover.
 - `README.md` line 25 mentions Easy Team / AUTO mode.
-- `README.md` lines 83-92 define core quality rules: every round must improve; critic must give concrete fixes; rhymes, grammar, final Lyrics + Style prompt matter.
+- `README.md` defines core quality rules: every round must improve; critic must give concrete fixes; rhymes, grammar, final Lyrics, Style Prompt, COVERMASTER, and S-cover matter.
 - `easyteam-chatgpt-prompt.md` lines 1-4 is a ChatGPT Project Instructions prompt artifact.
 - `easyteam-chatgpt-prompt.md` lines 7-90 contains a basic single-file role prompt and output format.
 - Explorer confirmed repo is currently a spec plus a single prompt seed, not a complete prompt-engineering system.
@@ -28,7 +28,7 @@ User wants EasyTeam thought through globally and turned into a whole project wit
 2. Low-typing interaction protocol: yes/no and numbered commands, one question at a time, defaults on `ano`.
 3. Prompt pack: modular ChatGPT Project instruction plus role prompts and AUTO workflow.
 4. Quality system: critic rubric, rhyme/grammar/style checklist, pass/fail examples.
-5. Examples and fixtures: sample sessions proving low-typing workflow reaches final Lyrics + Style Prompt.
+5. Examples and fixtures: sample sessions proving low-typing workflow reaches final Lyrics, Style Prompt, COVERMASTER, and S-cover.
 6. GitHub/project workflow docs: versioning, prompt changes, release notes, ChatGPT/GitHub usage.
 
 ## Adopted defaults
