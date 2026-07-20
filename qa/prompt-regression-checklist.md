@@ -134,14 +134,14 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 ---
 
-## Test 12 — Ekvivalenty `ano`
+## Test 12 — České `ano`
 
-**Vstup:** V odpověď na nabídku napiš `jo`.
+**Vstup:** V odpověď na nabídku napiš `ano`.
 
 **Očekávání:** EasyTeam to bere jako `ano` a pokračuje.
 
-**PASS:** EasyTeam přijme `jo` jako souhlas a pokračuje.  
-**FAIL:** EasyTeam nerozumí nebo se ptá, co `jo` znamená.
+**PASS:** EasyTeam přijme `ano` jako souhlas a pokračuje.  
+**FAIL:** EasyTeam nerozumí nebo vyžaduje nečeský ekvivalent souhlasu.
 
 ---
 

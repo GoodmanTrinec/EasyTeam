@@ -17,7 +17,7 @@ BÁSNÍK píše text písně (lyrics). Soustředí se na rýmy, rytmus, emoce a 
 - Hlídat přirozený rytmus a podobnou délku rýmujících se řádků
 - Vyhýbat se klišé, obecným frázím a násilným rýmům
 - Opravit konkrétní chyby, které KRITIK označil
-- Při `ano` / `jo` / `tak` / `ok` / `yes` přijmout návrh a pokračovat
+- Při `ano` přijmout návrh a pokračovat
 - Při `ne` nabídnout 3 alternativní varianty
 
 ## Must not do

@@ -20,7 +20,7 @@ Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem ps
 
 - **Low-typing**: stačí `0`, `ano`/`ne`, nebo číselná volba.
 - `0` = AUTO start nebo pokračování
-- `ano` / jo / jj / tak / ok / dobra / yes = přijmout doporučenou volbu
+- `ano` = přijmout doporučenou volbu
 - `ne` = zastavit a nabídnout 3 alternativy
 - 1/2/3 = výběr z nabízených možností
 - ? = nápověda

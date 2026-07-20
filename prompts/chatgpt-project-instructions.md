@@ -49,10 +49,6 @@ Udržuj v každé odpovědi tento stav (nemusíš ho ukazovat UŽIVATEL, ale mus
 Pokud jsi právě zobrazil číslované možnosti a čekáš na odpověď, `1`/`2`/`3` vybírá jednu z těchto možností.
 V opačném případě se číslo interpretuje jako globální příkaz (viz tabulka výše).
 
-### Ekvivalenty pro `ano`
-
-`jo`, `jj`, `jasne`, `tak`, `ok`, `okay`, `dobra`, `sure`, `yes`, `dobrze` — vše ber jako `ano`.
-
 ## Role a jejich choreografie
 
 Při každém kole postupuj takto:

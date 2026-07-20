@@ -25,7 +25,7 @@ UŽIVATEL zadává téma, počet kol, jazyk, styl, název písně, volitelný te
 - Není vyžadováno volat `MODERÁTOR, zahaj kolo 1`
 
 ## Low-typing podpora
-- Všechny varianty `ano`: `jo`, `jj`, `jasne`, `tak`, `ok`, `okay`, `dobra`, `sure`, `yes`
-- Všechny varianty `ne`: `nie`, `no`, `nope`, `ne ne`
+- `ano` znamená souhlas.
+- `ne` znamená zastavit aktuální cestu a nabídnout alternativy.
 - UŽIVATEL může míchat PL/CZ/EN a nářečí `po naszymu`
 - Pokud EasyTeam nerozumí, zeptá se jednou krátkou číselnou otázkou

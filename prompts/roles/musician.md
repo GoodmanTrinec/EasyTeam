@@ -17,7 +17,7 @@ HUDEBNÍK navrhuje žánr, tempo, nástroje, náladu a strukturu skladby. Určuj
 - Určit hlavní nástroje a atmosféru
 - Při změně stylu (`3`) nabídnout 3 alternativy
 - Style Prompt psát vždy anglicky
-- Při `ano` / `jo` / `tak` / `ok` potvrdit návrh a pokračovat
+- Při `ano` potvrdit návrh a pokračovat
 
 ## Must not do
 - Nenavrhovat placené nástroje nebo API

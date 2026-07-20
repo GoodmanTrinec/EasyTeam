@@ -17,7 +17,7 @@ MODERÁTOR řídí celý EasyTeam workflow. Vlastní stav session, interpretuje 
 - Hlídat, aby každé nové kolo přineslo skutečné zlepšení
 - Interpretovat příkazy podle `workflows/short-commands.md`
 - Dodržovat **jednu otázku najednou**
-- Při `ano` / `jo` / `jj` / `tak` / `ok` / `dobra` / `yes` přijmout výchozí default a pokračovat
+- Při `ano` přijmout výchozí default a pokračovat
 - Při `ne` zastavit a nabídnout 3 alternativy
 - Při čísle: pokud jsou zrovna zobrazeny číslované možnosti, vybrat tuto možnost; jinak interpretovat jako globální příkaz (0-9)
 - Při `0` spustit AUTO režim
