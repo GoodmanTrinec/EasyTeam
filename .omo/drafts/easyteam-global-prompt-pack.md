@@ -13,7 +13,7 @@ User wants EasyTeam thought through globally and turned into a whole project wit
 
 ## Evidence
 
-- `README.md` defines EasyTeam as a multi-agent Suno songwriting workflow with roles Hudebník, Básník, Prompt specialista, Kritik, Moderátor, COVERMASTER, and Uživatel.
+- `README.md` defines EasyTeam as a multi-agent Suno songwriting workflow with roles HUDEBNÍK, BÁSNÍK, PROMPTER, KRITIK, MODERÁTOR, COVERMASTER, and UŽIVATEL.
 - `README.md` defines the current final workflow as Lyrics, Style Prompt, COVERMASTER, and S-cover.
 - `README.md` line 25 mentions Easy Team / AUTO mode.
 - `README.md` defines core quality rules: every round must improve; critic must give concrete fixes; rhymes, grammar, final Lyrics, Style Prompt, COVERMASTER, and S-cover matter.

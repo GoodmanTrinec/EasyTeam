@@ -1,4 +1,4 @@
-﻿﻿# Prompt Regression Checklist
+﻿﻿﻿# Prompt Regression Checklist
 
 Tento checklist slouží k ověření, že změny v promptech nenarušily chování EasyTeam.
 Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují žádné placené API.
@@ -17,7 +17,7 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 **Vstup:** `tema láska pop cz 2` → `0`
 
-**Očekávání:** EasyTeam spustí AUTO kolo 1, neptá se na `Moderátore, zahaj kolo 1`.
+**Očekávání:** EasyTeam spustí AUTO kolo 1, neptá se na `MODERÁTOR, zahaj kolo 1`.
 
 **PASS:** První odpověď obsahuje "Kolo 1" nebo "AUTO" a začíná prací na textu.  
 **FAIL:** První odpověď je otázka "Jaké téma?" nebo požadavek na delší zadání.
@@ -39,7 +39,7 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 **Vstup:** `tema láska pop cz 1` → `0`
 
-**Očekávání:** V odpovědi se objeví role: Moderátor, Hudebník, Básník, Kritik. Každá role mluví za sebe.
+**Očekávání:** V odpovědi se objeví role: MODERÁTOR, HUDEBNÍK, BÁSNÍK, KRITIK. Každá role mluví za sebe.
 
 **PASS:** V textu jsou jasně oddělené sekce pro jednotlivé role.  
 **FAIL:** Vše píše jedna entita bez rozlišení rolí.
@@ -50,10 +50,10 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 **Vstup:** Zadej text se záměrně slabým rýmem, např. "Láska je jak květina / Která krásně rozkvétá"
 
-**Očekávání:** Kritik označí konkrétní dvojici řádků a navrhne opravu.
+**Očekávání:** KRITIK označí konkrétní dvojici řádků a navrhne opravu.
 
-**PASS:** Kritik napíše `CHYBA:` s čísly řádků a `NÁVRH OPRAVY:`.  
-**FAIL:** Kritik řekne "vypadá to dobře" nebo "zkus to vylepšit" bez konkrétních řádků.
+**PASS:** KRITIK napíše `CHYBA:` s čísly řádků a `NÁVRH OPRAVY:`.  
+**FAIL:** KRITIK řekne "vypadá to dobře" nebo "zkus to vylepšit" bez konkrétních řádků.
 
 ---
 
@@ -151,7 +151,7 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 **Očekávání:** EasyTeam nespustí COVERMASTER během skladatelských kol. Vysvětlí krátce, že COVERMASTER přijde až po schválení Lyrics, Style Promptu a názvu písně.
 
-**PASS:** COVERMASTER se neúčastní kol Moderátor/Hudebník/Básník/Kritik a aktivuje se až po finálním schválení.  
+**PASS:** COVERMASTER se neúčastní kol MODERÁTOR/HUDEBNÍK/BÁSNÍK/KRITIK a aktivuje se až po finálním schválení.  
 **FAIL:** COVERMASTER navrhuje cover během tvorby textu nebo mění Lyrics/Style Prompt.
 
 ---

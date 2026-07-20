@@ -1,4 +1,4 @@
-﻿﻿# EasyTeam — Index projektu
+﻿﻿﻿# EasyTeam — Index projektu
 
 EasyTeam je **markdown prompt-pack pro ChatGPT Pro**, ne aplikace.  
 Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem psaní.
@@ -10,7 +10,7 @@ Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem ps
 | README.md | Úvod, koncept, historie projektu |
 | INDEX.md | **Tento soubor** — mapa celého projektu |
 | prompts/ | Hlavní prompt pro ChatGPT Project Instructions |
-| prompts/roles/ | Modulární definice rolí (Moderátor, Básník, Hudebník, Kritik, Prompt specialista, COVERMASTER, Uživatel) |
+| prompts/roles/ | Modulární definice rolí (MODERÁTOR, BÁSNÍK, HUDEBNÍK, KRITIK, PROMPTER, COVERMASTER, UŽIVATEL) |
 | workflows/ | Protokoly a pravidla interakce |
 | examples/ | Ukázkové session s minimálním psaním |
 | qa/ | Kritéria kvality, regresní checklisty |
@@ -37,13 +37,13 @@ Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem ps
 ## Plánované artefakty
 
 - prompts/chatgpt-project-instructions.md — hlavní prompt pro ChatGPT
-- prompts/roles/moderator.md — role Moderátora
-- prompts/roles/poet.md — role Básníka
-- prompts/roles/musician.md — role Hudebníka
-- prompts/roles/prompt-specialist.md — role Prompt specialisty
-- prompts/roles/critic.md — role Kritika
-- prompts/roles/covermaster.md — role COVERMASTERa
-- prompts/roles/user.md — role Uživatele
+- prompts/roles/moderator.md — role MODERÁTOR
+- prompts/roles/poet.md — role BÁSNÍK
+- prompts/roles/musician.md — role HUDEBNÍK
+- prompts/roles/prompter.md — role PROMPTER
+- prompts/roles/critic.md — role KRITIK
+- prompts/roles/covermaster.md — role COVERMASTER
+- prompts/roles/user.md — role UŽIVATEL
 - workflows/short-commands.md — protokol krátkých příkazů
 - examples/czech-folk-metal-low-typing.md — ukázka low-typing session
 - examples/pop-ballad-yes-no.md — ukázka s ano/ne

@@ -7,7 +7,7 @@ I treated this as open-ended and chose best-practice defaults for you: EasyTeam 
 What you get:
 - A clean repo structure for EasyTeam as a reusable prompt-engineering project.
 - A full ChatGPT Project Instructions prompt designed for low-typing use.
-- Modular role prompts for Moderátor, Básník, Hudebník, Prompt specialista, Kritik, COVERMASTER, and Uživatel.
+- Modular role prompts for MODERÁTOR, BÁSNÍK, HUDEBNÍK, PROMPTER, KRITIK, COVERMASTER, and UŽIVATEL.
 - AUTO mode and ultra-short command protocol.
 - A critic rubric for rhyme, rhythm, grammar, singability, and Suno style prompt quality.
 - Example sessions proving the system works with mostly `ano/ne` and numeric choices.
@@ -83,7 +83,7 @@ Every implementation todo must include:
 Global verification commands/checks for the worker:
 - `Get-ChildItem -Recurse -File -Include *.md | Select-Object FullName` to enumerate all markdown files.
 - `Get-ChildItem -Recurse -File -Include *.md | Select-String -Pattern "paid API","paid model","pay-per-token","OpenAI API","Claude API","Gemini API"` and confirm any matches appear only as prohibited-cost guardrails.
-- `Get-ChildItem examples -File -Filter *.md | Select-String -Pattern "Moderátore, zahaj kolo 1"` should return no required-use examples; if it appears, it must be explicitly marked as not required.
+- `Get-ChildItem examples -File -Filter *.md | Select-String -Pattern "MODERÁTOR, zahaj kolo 1"` should return no required-use examples; if it appears, it must be explicitly marked as not required.
 - `Get-ChildItem examples -File -Filter *.md | Select-String -Pattern "--- LYRICS ---","--- STYLE PROMPT ---","--- COVERMASTER ---","--- S-COVER ---"` confirms final-output examples include all required sections.
 - `Select-String -Path qa/*.md -Pattern "weak rhyme","forced rhyme","low-typing","one short"` confirms QA includes at least one weak-rhyme failure case and one low-typing pass case.
 
@@ -152,7 +152,7 @@ Commit line:
 ### Todo 2: `workflows/short-commands.md`: Define ultra-short yes/no control protocol - expect no long trigger required
 
 References:
-- User explicitly said `Moderátore, zahaj kolo 1` is too long.
+- User explicitly said `MODERÁTOR, zahaj kolo 1` is too long.
 - User writes slowly and wants yes/no or click-like decisions.
 - `README.md:25` supports Easy Team / AUTO mode.
 
@@ -161,7 +161,7 @@ Implementation:
 - Define command table exactly:
   - `0` = AUTO start or continue from current brief.
   - `1` = show 3 short options when no numbered choice list is currently awaiting an answer.
-  - `2` = improve lyrics according to Kritik when no numbered choice list is currently awaiting an answer.
+  - `2` = improve lyrics according to KRITIK when no numbered choice list is currently awaiting an answer.
   - `3` = change music/style direction when no numbered choice list is currently awaiting an answer.
   - `4` = make chorus stronger.
   - `5` = shorten.
@@ -177,7 +177,7 @@ Implementation:
 - Include numeric precedence rule exactly: if EasyTeam has just shown numbered choices and is waiting for an answer, a bare number selects that choice; otherwise it is interpreted as a global command.
 
 Acceptance criteria:
-- The phrase `Moderátore, zahaj kolo 1` appears only as an example of what is no longer needed, not as a required command.
+- The phrase `MODERÁTOR, zahaj kolo 1` appears only as an example of what is no longer needed, not as a required command.
 - `0` is documented as sufficient to start AUTO when context exists.
 - `ano`, `ne`, and numeric precedence behavior are unambiguous.
 - Affirmation variants like `jo`, `jj`, `tak`, `ok`, `dobra`, and `yes` are documented as equivalent to `ano`.
@@ -194,7 +194,7 @@ Commit line:
 ### Todo 3: `prompts/roles/*.md`: Split all EasyTeam roles into modular prompts - expect reusable role contracts
 
 References:
-- `README.md` lists Hudebník, Básník, Prompt specialista, Kritik, Moderátor, COVERMASTER, and Uživatel.
+- `README.md` lists HUDEBNÍK, BÁSNÍK, PROMPTER, KRITIK, MODERÁTOR, COVERMASTER, and UŽIVATEL.
 - `easyteam-chatgpt-prompt.md:13-52` contains current combined role descriptions.
 
 Implementation:
@@ -202,14 +202,14 @@ Implementation:
   - `prompts/roles/moderator.md`
   - `prompts/roles/poet.md`
   - `prompts/roles/musician.md`
-  - `prompts/roles/prompt-specialist.md`
+  - `prompts/roles/prompter.md`
   - `prompts/roles/critic.md`
   - `prompts/roles/covermaster.md`
   - `prompts/roles/user.md`
 - Each role file must include: purpose, inputs, outputs, must-do, must-not-do, low-typing behavior.
 - Moderator must own state, command interpretation, one-question-at-a-time flow, and final assembly.
 - Critic must be strict and concrete; no vague praise-only review.
-- Prompt specialist must produce English Suno Style Prompt.
+- PROMPTER must produce English Suno Style Prompt.
 
 Acceptance criteria:
 - Every README role has one matching role file.
@@ -218,7 +218,7 @@ Acceptance criteria:
 
 QA:
 - Happy path command: `Select-String -Path prompts/roles/moderator.md -Pattern 'AUTO','0','ano','ne','numeric precedence'` confirms Moderator can drive low-typing AUTO.
-- Failure path command: `Select-String -Path prompts/roles/critic.md -Pattern 'weak','fake','concrete line','reject'` or Czech equivalents confirms Kritik rejects weak/fake rhymes with line-specific fixes.
+- Failure path command: `Select-String -Path prompts/roles/critic.md -Pattern 'weak','fake','concrete line','reject'` or Czech equivalents confirms KRITIK rejects weak/fake rhymes with line-specific fixes.
 - Evidence path: `prompts/roles/*.md`.
 
 Commit line:
@@ -235,7 +235,7 @@ Implementation:
 - Add `qa/critic-rubric.md`.
 - Include sections: rhyme quality, rhythm/singability, grammar/morphology, emotional specificity, chorus strength, Suno suitability, style prompt quality.
 - Each section must have pass/fail criteria and examples.
-- Include weak-rhyme failure cases and what a concrete Kritik response looks like.
+- Include weak-rhyme failure cases and what a concrete KRITIK response looks like.
 - Add rule: text cannot pass just because the idea is good; it must sing well.
 
 Acceptance criteria:
@@ -285,7 +285,7 @@ Acceptance criteria:
 - Final output is Suno-ready and split into Lyrics, Style Prompt, COVERMASTER, and S-cover.
 
 QA:
-- Happy path manual ChatGPT check: create/use a ChatGPT Project with `prompts/chatgpt-project-instructions.md` pasted into Project Instructions, submit `tema rytir metal cz 3` then `0`; expected assertion: response starts EasyTeam/AUTO round without requiring `Moderátore, zahaj kolo 1`.
+- Happy path manual ChatGPT check: create/use a ChatGPT Project with `prompts/chatgpt-project-instructions.md` pasted into Project Instructions, submit `tema rytir metal cz 3` then `0`; expected assertion: response starts EasyTeam/AUTO round without requiring `MODERÁTOR, zahaj kolo 1`.
 - Failure path manual ChatGPT check: in a fresh chat with the same Project Instructions, submit only `0`; expected assertion: response asks one short numbered question, e.g. `Vyber téma: 1) láska 2) boj 3) smutek`, and does not show a long intake form.
 - Static command: `Select-String -Path prompts/chatgpt-project-instructions.md -Pattern 'numeric precedence','one short','0','STYLE PROMPT'` confirms the core instructions are present.
 - Evidence path: `prompts/chatgpt-project-instructions.md`. Do not require `examples/` fixtures here; behavior examples are created and validated in Todo 6.
@@ -314,7 +314,7 @@ Implementation:
 
 Acceptance criteria:
 - There are at least 3 example files.
-- No example requires typing `Moderátore, zahaj kolo 1`.
+- No example requires typing `MODERÁTOR, zahaj kolo 1`.
 - Examples demonstrate both success and recovery behavior.
 
 QA:
@@ -456,7 +456,7 @@ Run these after all todos are complete. All must pass before claiming done.
 - User can open README, copy one prompt into ChatGPT Project Instructions, and start with compact input plus `0`.
 - User can continue with mostly `ano/ne` or numbers.
 - EasyTeam produces the full final workflow: Lyrics, English Style Prompt, COVERMASTER, and S-cover.
-- Kritik remains strict about rhymes, rhythm, grammar, and singability.
+- KRITIK remains strict about rhymes, rhythm, grammar, and singability.
 - No paid API/model is introduced, recommended, or required beyond the user’s existing ChatGPT Pro.
 - Repo contains reusable prompt artifacts, examples, QA checklists, and GitHub workflow docs.
 - Final verification wave evidence files exist and show all checks passed.

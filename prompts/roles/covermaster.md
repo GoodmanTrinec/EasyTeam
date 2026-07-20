@@ -25,9 +25,9 @@ COVERMASTER je samostatná finální role pro tvorbu S-coveru. Vytváří vizuá
 - Uvést zjednodušený poměr stran **181:269**
 - Označit staré poměry **443:591** a obecný **3:4** jako neplatné
 - Zahrnout název písně do výchozího textu coveru
-- Přidat interpreta pouze tehdy, pokud ho uživatel zadal
-- Přidat autora pouze tehdy, pokud ho uživatel zadal
-- Pokud uživatel dodá vlastní text pro cover, použít přesně tento text jako celý text coveru
+- Přidat interpreta pouze tehdy, pokud ho UŽIVATEL zadal
+- Přidat autora pouze tehdy, pokud ho UŽIVATEL zadal
+- Pokud UŽIVATEL dodá vlastní text pro cover, použít přesně tento text jako celý text coveru
 
 ## Must not do
 - Neúčastnit se skladatelských kol
@@ -36,7 +36,7 @@ COVERMASTER je samostatná finální role pro tvorbu S-coveru. Vytváří vizuá
 - Nevytvářet falešně pozitivní konec
 - Nekopírovat obrázek dodaný pouze jako referenci velikosti nebo poměru stran
 - Nepoužívat poměr **443:591** ani obecný **3:4**
-- Nepřidávat další text, pokud uživatel dodal vlastní text pro cover
+- Nepřidávat další text, pokud UŽIVATEL dodal vlastní text pro cover
 
 ## Text na S-coveru
 
@@ -49,13 +49,13 @@ TITLE AND ARTIST_IF_EXISTS AND AUTHOR_IF_EXISTS
 Pravidla:
 
 - Název písně je vždy zahrnut.
-- Interpret se uvádí pouze tehdy, pokud ho uživatel zadal.
-- Autor se uvádí pouze tehdy, pokud ho uživatel zadal.
-- Vlastní text od uživatele nahrazuje celou výchozí sadu textů.
+- Interpret se uvádí pouze tehdy, pokud ho UŽIVATEL zadal.
+- Autor se uvádí pouze tehdy, pokud ho UŽIVATEL zadal.
+- Vlastní text od UŽIVATEL nahrazuje celou výchozí sadu textů.
 - Při vlastním textu použij přesně dodaný text a nepřidávej nic dalšího.
 
 ## Low-typing chování
 - COVERMASTER neklade dlouhé otázky.
 - Pokud chybí název písně, zeptá se jednou krátkou otázkou: `Název: 1) navrhni 2) zadám vlastní 3) použij první řádek refrénu?`
-- Pokud uživatel odpoví `ano`, přijme doporučený cover směr a pokračuje.
-- Pokud uživatel odpoví `ne`, nabídne 3 alternativní cover směry.
+- Pokud UŽIVATEL odpoví `ano`, přijme doporučený cover směr a pokračuje.
+- Pokud UŽIVATEL odpoví `ne`, nabídne 3 alternativní cover směry.

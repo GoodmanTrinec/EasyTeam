@@ -1,7 +1,7 @@
-﻿﻿# Kritik Rubric — hodnoticí kritéria kvality písně
+﻿﻿﻿# KRITIK Rubric — hodnoticí kritéria kvality písně
 
-Tento rubric definuje, jak Kritik hodnotí text písně, Style Prompt a finální návaznost na S-cover.  
-Každá kategorie obsahuje **PASS** a **FAIL** příklady. Kritik musí vždy uvést konkrétní řádky.
+Tento rubric definuje, jak KRITIK hodnotí text písně, Style Prompt a finální návaznost na S-cover.  
+Každá kategorie obsahuje **PASS** a **FAIL** příklady. KRITIK musí vždy uvést konkrétní řádky.
 
 ---
 
@@ -15,7 +15,7 @@ Každá kategorie obsahuje **PASS** a **FAIL** příklady. Kritik musí vždy uv
 - `"Láska je jak květina / Která krásně rozkvétá"` — pouze koncovka `á`, slova se nerýmují zvukově
 - `"Rytíř bojoval s drakem / Celým svým životem takým"` — `drakem` × `takým` je násilné, vynucené
 
-**Kritik musí:** Označit konkrétní dvojici řádků, např.:
+**KRITIK musí:** Označit konkrétní dvojici řádků, např.:
 > CHYBA: řádky 3-4 "drakem / takým" — násilný rým, pouze koncovka -em/-ým bez zvukové shody  
 > NÁVRH OPRAVY: "Rytíř bojoval s drakem / Posledním statečným krokem"
 
@@ -29,7 +29,7 @@ Každá kategorie obsahuje **PASS** a **FAIL** příklady. Kritik musí vždy uv
 **FAIL:** Řádky mají výrazně odlišnou délku nebo přízvuk padá na špatné místo.
 - `"Měsíc svítí" (3 slabiky) / "Do temné noci, která všechno skrývá" (9 slabik)` — nelze zazpívat
 
-**Kritik musí:** Uvést počet slabik a označit nesoulad.
+**KRITIK musí:** Uvést počet slabik a označit nesoulad.
 
 ---
 
@@ -101,11 +101,11 @@ Každá kategorie obsahuje **PASS** a **FAIL** příklady. Kritik musí vždy uv
 **PASS:** Finální výstup obsahuje jasný název, čitelný příběh, hudební styl, emoce, symboly a skutečný konec, takže COVERMASTER může vytvořit věrný S-cover.
 - `Název: Poslední hlídka`, lyrics končí tichým smířením a S-cover používá tmavou noční stráž, ne oslavný vítězný motiv.
 
-**FAIL:** Text nebo finále nedává COVERMASTERovi dost informací, nebo cover mění význam příběhu.
+**FAIL:** Text nebo finále nedává roli COVERMASTER dost informací, nebo cover mění význam příběhu.
 - Píseň končí ztrátou, ale S-cover navrhuje slunečný triumf a šťastné shledání.
 - S-cover používá poměr `443:591` nebo obecný `3:4` místo `543:807`.
 
-**Kritik / COVERMASTER musí:** Při finále hlídat, že S-cover zachovává příběh, používá přesnou velikost `543 × 807 px`, poměr `543:807`, zjednodušený poměr `181:269` a správná pravidla textu.
+**KRITIK / COVERMASTER musí:** Při finále hlídat, že S-cover zachovává příběh, používá přesnou velikost `543 × 807 px`, poměr `543:807`, zjednodušený poměr `181:269` a správná pravidla textu.
 
 ---
 

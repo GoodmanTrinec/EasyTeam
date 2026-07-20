@@ -1,4 +1,4 @@
-﻿# Decision Log — rozhodovací deník
+﻿﻿# Decision Log — rozhodovací deník
 
 Tento deník zaznamenává klíčová rozhodnutí o směřování EasyTeam projektu.
 
@@ -17,7 +17,7 @@ Tento deník zaznamenává klíčová rozhodnutí o směřování EasyTeam proje
 **Rozhodnutí:** EasyTeam bude markdown prompt-pack pro ChatGPT Pro, ne aplikace.
 
 **Důvody:**
-- Uživatel má ChatGPT Pro s GitHub integrací
+- UŽIVATEL má ChatGPT Pro s GitHub integrací
 - Prompt-pack je rychlejší cesta k užitečnému výsledku než UI
 - Hlavní mezera je kvalita workflow, ne tlačítka
 
@@ -27,11 +27,11 @@ Tento deník zaznamenává klíčová rozhodnutí o směřování EasyTeam proje
 
 ### 2026-07-19 — Low-typing interakce
 
-**Rozhodnutí:** Uživatel píše jen `0`-`9`, `ano`/`ne`, nebo krátký brief. Žádné dlouhé věty.
+**Rozhodnutí:** UŽIVATEL píše jen `0`-`9`, `ano`/`ne`, nebo krátký brief. Žádné dlouhé věty.
 
-**Důvody:** Uživatel píše pomalu a chce minimum psaní.
+**Důvody:** UŽIVATEL píše pomalu a chce minimum psaní.
 
-**Dopad:** Všechny prompty musí podporovat číselné příkazy a `ano`/`ne`. Nikdy nevyžadovat `Moderátore, zahaj kolo 1`.
+**Dopad:** Všechny prompty musí podporovat číselné příkazy a `ano`/`ne`. Nikdy nevyžadovat `MODERÁTOR, zahaj kolo 1`.
 
 ---
 
@@ -39,7 +39,7 @@ Tento deník zaznamenává klíčová rozhodnutí o směřování EasyTeam proje
 
 **Rozhodnutí:** Projekt nepoužívá žádná placená API ani modely nad rámec stávajícího ChatGPT Pro.
 
-**Důvody:** Uživatel výslovně odmítl placené služby.
+**Důvody:** UŽIVATEL výslovně odmítl placené služby.
 
 **Dopad:** Všechny prompty obsahují guardrail. Pokud by něco vyžadovalo platbu, pouze varovat a nepřipojit.
 
@@ -47,9 +47,9 @@ Tento deník zaznamenává klíčová rozhodnutí o směřování EasyTeam proje
 
 ### 2026-07-19 — Tolerance vstupního jazyka
 
-**Rozhodnutí:** EasyTeam akceptuje mix PL/CZ/EN a nářečí `po naszymu`. Nikdy neopravuje uživatele.
+**Rozhodnutí:** EasyTeam akceptuje mix PL/CZ/EN a nářečí `po naszymu`. Nikdy neopravuje UŽIVATEL.
 
-**Důvody:** Uživatel přirozeně míchá jazyky včetně lokálního nářečí.
+**Důvody:** UŽIVATEL přirozeně míchá jazyky včetně lokálního nářečí.
 
 **Dopad:** Všechny prompty musí tolerovat smíšený vstup a v případě potřeby se zeptat na výstupní jazyk jednou krátkou otázkou.
 
@@ -59,6 +59,6 @@ Tento deník zaznamenává klíčová rozhodnutí o směřování EasyTeam proje
 
 **Rozhodnutí:** GitHub committed markdown je zdroj pravdy. `.omo/` je lokální plánovací scratch.
 
-**Důvody:** Uživatel chce GitHub jako primární úložiště. Session deník a plány v `.omo/` jsou dočasné.
+**Důvody:** UŽIVATEL chce GitHub jako primární úložiště. Session deník a plány v `.omo/` jsou dočasné.
 
 **Dopad:** Všechna důležitá rozhodnutí, changelog a dokumentace jdou do committed souborů.

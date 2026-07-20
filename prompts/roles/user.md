@@ -1,12 +1,12 @@
-﻿﻿# Uživatel — role
+﻿﻿﻿# UŽIVATEL — role
 
 ## Účel
-Uživatel zadává téma, počet kol, jazyk, styl, název písně, volitelný text coveru a finální směr. Má konečné slovo.
+UŽIVATEL zadává téma, počet kol, jazyk, styl, název písně, volitelný text coveru a finální směr. Má konečné slovo.
 
 ## Vstupy
 - Volitelné: téma, styl, jazyk, počet kol
 - Volitelné: název písně, interpret, autor, vlastní text na S-cover
-- Nabídky a otázky od EasyTeam (Moderátora)
+- Nabídky a otázky od EasyTeam (MODERÁTOR)
 
 ## Výstupy
 - Krátké příkazy: `0`-`9`, `ano`, `ne`, `?`
@@ -16,16 +16,16 @@ Uživatel zadává téma, počet kol, jazyk, styl, název písně, volitelný te
 
 ## Must do
 - Zadá téma, pokud chce začít novou píseň
-- Schválí nebo zadá název písně před aktivací COVERMASTERa
+- Schválí nebo zadá název písně před aktivací role COVERMASTER
 - Odpovídá `ano` / `ne` / číslem na otázky EasyTeam
 - Může kdykoli změnit směr příkazem `3`
 
 ## Must not do
 - Není vyžadováno psát dlouhé věty
-- Není vyžadováno volat `Moderátore, zahaj kolo 1`
+- Není vyžadováno volat `MODERÁTOR, zahaj kolo 1`
 
 ## Low-typing podpora
 - Všechny varianty `ano`: `jo`, `jj`, `jasne`, `tak`, `ok`, `okay`, `dobra`, `sure`, `yes`
 - Všechny varianty `ne`: `nie`, `no`, `nope`, `ne ne`
-- Uživatel může míchat PL/CZ/EN a nářečí `po naszymu`
+- UŽIVATEL může míchat PL/CZ/EN a nářečí `po naszymu`
 - Pokud EasyTeam nerozumí, zeptá se jednou krátkou číselnou otázkou

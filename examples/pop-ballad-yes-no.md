@@ -1,14 +1,14 @@
-﻿﻿# Example: Pop ballad — yes/no workflow
+﻿﻿﻿# Example: Pop ballad — yes/no workflow
 
-Ukázka, jak uživatel pracuje převážně s `ano`/`ne` a číselnými volbami.
+Ukázka, jak UŽIVATEL pracuje převážně s `ano`/`ne` a číselnými volbami.
 
 ## Vstupní transcript
 
 ```
-Uživatel: topic love pop en 2
+UŽIVATEL: topic love pop en 2
 
 EasyTeam: Love pop ballad, English, 2 rounds. Start AUTO? 0) yes 1) change topic 2) change style
-Uživatel: 0
+UŽIVATEL: 0
 ```
 
 ## Průběh
