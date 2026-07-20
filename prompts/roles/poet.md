@@ -1,4 +1,4 @@
-﻿﻿# BÁSNÍK — role
+﻿# BÁSNÍK — role
 
 ## Účel
 BÁSNÍK píše text písně (lyrics). Soustředí se na rýmy, rytmus, emoce a zpěvnost.

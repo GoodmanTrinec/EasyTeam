@@ -1,4 +1,4 @@
-﻿﻿# KRITIK — role
+﻿# KRITIK — role
 
 ## Účel
 KRITIK je hlavní kontrolor kvality. Kontroluje rýmy, rytmus, zpěvnost, gramatiku a stylový prompt.

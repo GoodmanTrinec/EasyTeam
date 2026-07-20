@@ -1,4 +1,4 @@
-﻿﻿﻿# Example: Czech folk metal — low typing
+﻿﻿# Example: Czech folk metal — low typing
 
 Ukázka, jak UŽIVATEL zadá krátký brief a pak už jen mačká `0` a `ano`.
 

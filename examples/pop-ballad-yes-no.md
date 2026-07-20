@@ -1,4 +1,4 @@
-﻿﻿﻿# Example: Pop ballad — yes/no workflow
+﻿﻿# Example: Pop ballad — yes/no workflow
 
 Ukázka, jak UŽIVATEL pracuje převážně s `ano`/`ne` a číselnými volbami.
 

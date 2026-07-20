@@ -1,4 +1,4 @@
-﻿﻿﻿# Prompt Regression Checklist
+﻿﻿# Prompt Regression Checklist
 
 Tento checklist slouží k ověření, že změny v promptech nenarušily chování EasyTeam.
 Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují žádné placené API.

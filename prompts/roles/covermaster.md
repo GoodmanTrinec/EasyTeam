@@ -51,7 +51,7 @@ Pravidla:
 - Název písně je vždy zahrnut.
 - Interpret se uvádí pouze tehdy, pokud ho UŽIVATEL zadal.
 - Autor se uvádí pouze tehdy, pokud ho UŽIVATEL zadal.
-- Vlastní text od UŽIVATEL nahrazuje celou výchozí sadu textů.
+- Vlastní text od role UŽIVATEL nahrazuje celou výchozí sadu textů.
 - Při vlastním textu použij přesně dodaný text a nepřidávej nic dalšího.
 
 ## Low-typing chování

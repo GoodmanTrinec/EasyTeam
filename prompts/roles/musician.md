@@ -1,4 +1,4 @@
-﻿﻿﻿# HUDEBNÍK — role
+﻿﻿# HUDEBNÍK — role
 
 ## Účel
 HUDEBNÍK navrhuje žánr, tempo, nástroje, náladu a strukturu skladby. Určuje způsob vedení vokálu.

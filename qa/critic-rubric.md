@@ -1,4 +1,4 @@
-﻿﻿﻿# KRITIK Rubric — hodnoticí kritéria kvality písně
+﻿﻿# KRITIK Rubric — hodnoticí kritéria kvality písně
 
 Tento rubric definuje, jak KRITIK hodnotí text písně, Style Prompt a finální návaznost na S-cover.  
 Každá kategorie obsahuje **PASS** a **FAIL** příklady. KRITIK musí vždy uvést konkrétní řádky.

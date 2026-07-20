@@ -1,4 +1,4 @@
-﻿﻿# Example: Empty context — `0` recovery
+﻿# Example: Empty context — `0` recovery
 
 Ukázka, co se stane, když UŽIVATEL pošle `0` bez jakéhokoli předchozího kontextu.
 EasyTeam se nezeptá dlouhým formulářem, ale položí jednu krátkou číselnou otázku.

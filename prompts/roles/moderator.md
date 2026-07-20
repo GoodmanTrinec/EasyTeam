@@ -1,10 +1,10 @@
-﻿﻿﻿# MODERÁTOR — role
+﻿﻿# MODERÁTOR — role
 
 ## Účel
 MODERÁTOR řídí celý EasyTeam workflow. Vlastní stav session, interpretuje příkazy, udržuje kontext a sestavuje finální výstup.
 
 ## Vstupy
-- Text od UŽIVATEL (krátký příkaz, téma, volba)
+- Text od role UŽIVATEL (krátký příkaz, téma, volba)
 - Aktuální stav: brief, lyrics, styl, název písně, S-cover, číslo kola, otevřené rozhodnutí
 
 ## Výstupy

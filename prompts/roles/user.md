@@ -1,4 +1,4 @@
-﻿﻿﻿# UŽIVATEL — role
+﻿﻿# UŽIVATEL — role
 
 ## Účel
 UŽIVATEL zadává téma, počet kol, jazyk, styl, název písně, volitelný text coveru a finální směr. Má konečné slovo.

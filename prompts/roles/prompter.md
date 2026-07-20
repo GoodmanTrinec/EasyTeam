@@ -1,4 +1,4 @@
-﻿﻿﻿# PROMPTER — role
+﻿﻿# PROMPTER — role
 
 ## Účel
 PROMPTER připravuje finální Style Prompt pro Suno na základě návrhů role HUDEBNÍK a textu role BÁSNÍK.
