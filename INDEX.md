@@ -1,4 +1,4 @@
-﻿﻿# EasyTeam — Index projektu
+﻿﻿﻿# EasyTeam — Index projektu
 
 EasyTeam je **markdown prompt-pack pro ChatGPT Pro**, ne aplikace.  
 Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem psaní.
@@ -29,7 +29,7 @@ Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem ps
 
 - **Žádné placené API ani modely** nad rámec stávajícího ChatGPT Pro.
 - Pokud by něco vyžadovalo platbu, EasyTeam pouze varuje a nepřipojí to.
-- GitHub je primární zdroj pravdy; .omo/ je lokální scratch stav.
+- GitHub je primární zdroj pravdy; do repozitáře patří jen oficiální markdown, příklady, QA a konfigurace.
 - Výstupem je vždy **Lyrics → Style Prompt → COVERMASTER → S-cover**.
 - S-cover používá přesnou velikost **543 × 807 px**, poměr **543:807** a zjednodušený poměr **181:269**.
 - Vstup toleruje mix PL/CZ/EN a nářečí po naszymu.

@@ -1,11 +1,11 @@
-﻿# Decision Log — rozhodovací deník
+﻿﻿# Decision Log — rozhodovací deník
 
 Tento deník zaznamenává klíčová rozhodnutí o směřování EasyTeam projektu.
 
 ## Princip
 
 - **GitHub je primární zdroj pravdy.** Všechna projektová rozhodnutí, verze promptů a dokumentace patří do committed markdown souborů.
-- **`.omo/` je lokální scratch stav** — session deník, plány, drafty. NENÍ oficiálním zdrojem pravdy.
+- **Dočasné agentní scratch soubory nejsou zdroj pravdy** — session poznámky, plány a drafty patří mimo oficiální dokumentaci, dokud nejsou přepsané do committed markdown souborů.
 - Projektová rozhodnutí, changelog a release notes patří do normálních committed docs.
 
 ---
@@ -55,10 +55,10 @@ Tento deník zaznamenává klíčová rozhodnutí o směřování EasyTeam proje
 
 ---
 
-### 2026-07-20 — GitHub primární, `.omo/` scratch
+### 2026-07-20 — GitHub primární, scratch mimo dokumentaci
 
-**Rozhodnutí:** GitHub committed markdown je zdroj pravdy. `.omo/` je lokální plánovací scratch.
+**Rozhodnutí:** GitHub committed markdown je zdroj pravdy. Dočasné agentní scratch soubory nejsou součást oficiální dokumentace.
 
-**Důvody:** UŽIVATEL chce GitHub jako primární úložiště. Session deník a plány v `.omo/` jsou dočasné.
+**Důvody:** UŽIVATEL chce GitHub jako primární úložiště. Session deníky a pracovní plány jsou dočasné.
 
 **Dopad:** Všechna důležitá rozhodnutí, changelog a dokumentace jdou do committed souborů.

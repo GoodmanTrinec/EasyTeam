@@ -1,10 +1,10 @@
-﻿﻿# GitHub workflow
+﻿﻿﻿# GitHub workflow
 
 Tento dokument popisuje, jak používat GitHub pro versionování EasyTeam prompt packu.
 
 ## Princip
 
-GitHub je **primární zdroj pravdy** pro EasyTeam. Všechny prompt soubory, dokumentace a příklady jsou verzovány v git commitech. Lokální `.omo/` adresář je pouze scratch/planovací stav, který není oficiálním zdrojem pravdy.
+GitHub je **primární zdroj pravdy** pro EasyTeam. Všechny prompt soubory, dokumentace a příklady jsou verzovány v git commitech. Dočasné agentní scratch soubory a lokální pracovní poznámky nejsou oficiálním zdrojem pravdy.
 
 ## ChatGPT Pro, Codex a GitHub
 
@@ -45,7 +45,7 @@ Používej jasné zprávy, např.:
 
 - **Nepřidávat placená API / modely** do promptů ani dokumentace.
 - **Nepřidávat osobní údaje** nebo credentials.
-- **Nepoužívat `.omo/` jako oficiální dokumentaci** — všechno důležité patří do committed markdown souborů v `prompts/`, `docs/`, `qa/`, `examples/`.
+- **Nepoužívat dočasné agentní scratch soubory jako oficiální dokumentaci** — všechno důležité patří do committed markdown souborů v `prompts/`, `docs/`, `qa/`, `examples/`.
 
 ## Rychlá kontrola před commitem
 
