@@ -79,3 +79,13 @@ Tento deník zaznamenává klíčová rozhodnutí o směřování EasyTeam proje
 - BÁSNÍK navrhne TITLE nejpozději v prvním kole a aktualizuje ho po změně příběhu.
 - Finalní `FAIL` vrací práci odpovědné roli a KRITIK kontrolu opakuje až do `PASS`.
 - COVERMASTER pouze připravuje specifikaci S-coveru po finalním `PASS`; rozměr zůstává `543 × 807 px`.
+
+---
+
+### 2026-07-22 — Dva oficiální deníky s rozdílnými úlohami
+
+**Rozhodnutí:** `DZIENNIK.md` je commitnutou součástí dokumentace a zaznamenává chronologický průběh a stav realizace. `docs/decision-log.md` uchovává architektonická rozhodnutí a jejich odůvodnění.
+
+**Důvody:** Historie provedené práce má být viditelná na GitHubu, ale stavy implementace se nemají míchat s projektovými rozhodnutími.
+
+**Dopad:** Každá významná změna workflow dostane stavový zápis v `DZIENNIK.md`; rozhodnutí měnící pravidla EasyTeam se nadále zapisují zde.

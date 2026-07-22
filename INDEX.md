@@ -9,6 +9,7 @@ Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem ps
 |---|---|
 | README.md | Úvod, koncept, historie projektu |
 | INDEX.md | **Tento soubor** — mapa celého projektu |
+| DZIENNIK.md | Oficiální chronologický deník průběhu a stavu projektu |
 | prompts/ | Hlavní prompt pro ChatGPT Project Instructions |
 | prompts/roles/ | Modulární definice rolí (MODERÁTOR, BÁSNÍK, HUDEBNÍK, KRITIK, PROMPTER, COVERMASTER, UŽIVATEL) |
 | workflows/ | Protokoly a pravidla interakce |
@@ -57,3 +58,4 @@ Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem ps
 - qa/regression-test-results.md — poslední výsledky logických regresních testů
 - docs/github-workflow.md — workflow s GitHubem
 - docs/decision-log.md — rozhodovací deník
+- DZIENNIK.md — chronologický průběh, stav implementace a odkazy na releasové commity

@@ -148,6 +148,7 @@ Rým nesmí být vytvořen za cenu gramatické chyby nebo nepřirozené formulac
 | `qa/regression-test-results.md` | Poslední výsledky logických regresních testů |
 | `docs/github-workflow.md` | Workflow s ChatGPT + GitHub |
 | `docs/decision-log.md` | Rozhodovací deník |
+| `DZIENNIK.md` | Oficiální chronologický deník průběhu a stavu projektu |
 
 ## Krátké příkazy
 
@@ -183,3 +184,4 @@ Rým nesmí být vytvořen za cenu gramatické chyby nebo nepřirozené formulac
 - [Ukázkové session](examples/czech-folk-metal-low-typing.md)
 - [GitHub workflow](docs/github-workflow.md)
 - [Rozhodovací deník](docs/decision-log.md)
+- [Dziennik projektu](DZIENNIK.md)
