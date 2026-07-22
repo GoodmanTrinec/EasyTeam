@@ -1,85 +1,57 @@
-﻿﻿# Example: Pop ballad — yes/no workflow
+# Example: Pop ballad — `ano` / `ne` bez narušení AUTO
 
-Ukázka, jak UŽIVATEL pracuje převážně s `ano`/`ne` a číselnými volbami.
+Ukázka, jak `ne` a `ano` fungují při inicializaci a jak potom AUTO provede dvě plná kola bez dalšího dotazu.
 
-## Vstupní transcript
+## Inicializace
 
-```
+```text
 UŽIVATEL: topic love pop en 2
-
-EasyTeam: Love pop ballad, English, 2 rounds. Start AUTO? 0) yes 1) change topic 2) change style
+EasyTeam: Doporučený směr: intimate pop ballad. `ano` = přijmout, `ne` = 3 alternativy.
+UŽIVATEL: ne
+EasyTeam: 1) piano ballad 2) acoustic pop 3) cinematic pop
+UŽIVATEL: 1
+EasyTeam: Piano ballad, English, 2 rounds. Accept?
+UŽIVATEL: ano
 UŽIVATEL: 0
 ```
 
-## Průběh
+`ne` pozastavilo cestu a nabídlo 3 alternativy. `ano` přijalo vybraný směr. AUTO po `0` už mezi koly neklade otázky.
 
-### Round 1
-```
-Moderator: Round 1/2. Topic: love, pop ballad, English.
-Musician: Soft pop ballad, 80 BPM, piano, strings, female vocal, intimate night atmosphere.
-Poet:
-[Verse 1]
-The rain keeps falling on my window
-I sit alone, the lights are low
-Your face is fading like a photo
-From seasons we no longer know
+## Round 1/2
 
-[Chorus]
-And I still hear your name
-Echoing like a flame
-Burning through the silent night
-Till morning brings the light
-
-Critic: PASS — rhymes are natural (window/photo, low/know), rhythm is consistent, good imagery.
-
-Moderator: Round 1 complete. Continue to round 2? (0 = yes, 1 = more changes)
-User: 0
+```text
+MODERATOR: Round 1/2. TITLE, Lyrics and Style are empty. Goal: establish a concrete memory, chorus hook, musical direction and working title.
+MUSICIAN: 80 BPM piano ballad with soft strings and intimate female lead. POET: use rain and a faded photo as recurring images. PROMPTER: keep the arrangement sparse and nocturnal.
+POET: Proposes TITLE `Still Hear Your Name` and returns the complete Lyrics version 1 with Verse 1 and Chorus.
+PROMPTER: Intimate pop ballad at 80 BPM with soft piano, restrained strings and close female vocals. Sparse nocturnal production with a gentle emotional lift in the chorus.
+CRITIC: PASS
+MODERATOR: Saves TITLE, complete Lyrics version 1 and Style version 1. Round 1 is complete; AUTO continues immediately.
 ```
 
-### Round 2
+## Round 2/2
+
+```text
+MODERATOR: Round 2/2. TITLE is `Still Hear Your Name`; the story uses rain, a photo and unresolved regret. Goal: add Verse 2 and Bridge, strengthen the chorus and refine the final arrangement.
+MUSICIAN: Keep 80 BPM, add low strings in Verse 2 and backing vocals only in the final chorus. POET: preserve the unresolved ending. PROMPTER: describe the crescendo without production notes in Lyrics.
+POET: Keeps TITLE and returns the complete Lyrics version 2 with Verse 1, Chorus, Verse 2, Bridge, final Chorus and Outro.
+PROMPTER: Intimate pop ballad at 80 BPM with soft piano, low strings and close female lead vocals. Sparse rainy-night verses grow into restrained backing harmonies and an emotional final chorus without turning triumphant.
+CRITIC: PASS
+MODERATOR: Saves the complete final TITLE, Lyrics and Style. Both requested rounds are complete.
 ```
-Moderator: Round 2/2. Strengthening the chorus.
-Musician: Add backing vocals in chorus, slight tempo increase to 85 BPM.
-Poet:
-[Verse 2]
-The streets are empty, cold december
-A faded scarf, a word I remember
-You walked away without a warning
-I count the seconds till the morning
 
-[Chorus]
-And I still hear your name
-Echoing like a flame
-Burning through the silent night
-Till morning brings the light (hold)
+## Final check
 
-[Bridge]
-Maybe in another life
-I would not have caused this strife
-Maybe time will heal the scar
-And bring me back to who you are
-
-Critic: PASS. Verse 2 is strong, bridge adds emotional depth. One suggestion: "strife" is slightly formal for pop. Consider "Maybe I would not have cut the knife" or "Maybe I'd have stayed the night".
-User: ne
-
-Moderator: Alternatives: 1) keep "strife" 2) use "Maybe I'd have stayed the night" 3) rewrite bridge entirely
-User: 2
-
-Poet: (revised bridge)
-[Bridge]
-Maybe in another life
-I would have stayed with you tonight
-Maybe time will heal the scar
-And bring me back to who you are
-
-Critic: PASS. Clean, natural, emotional.
-Moderator: Finalize? 0 = yes, 1 = another round
-User: 0
+```text
+MODERATOR: TITLE matches the unresolved memory, Lyrics is complete, Style is English and all brief requirements are met. Starting the separate final gate.
+CRITIC: FAIL | RESPONSIBLE ROLE: PROMPTER | ERROR: STYLE does not explicitly state the vocal delivery in the bridge | FIX: add breathy, restrained delivery without changing the atmosphere.
+PROMPTER: Intimate pop ballad at 80 BPM with soft piano, low strings and close, breathy female lead vocals. Sparse rainy-night verses grow into restrained backing harmonies and an emotional final chorus without turning triumphant.
+CRITIC: PASS
+MODERATOR: `final_gate: pass`. COVERMASTER may now start.
 ```
 
 ## Final output
 
-```
+```text
 --- TITLE ---
 
 Still Hear Your Name
@@ -94,38 +66,32 @@ From seasons we no longer know
 
 [Chorus]
 And I still hear your name
-Echoing like a flame
-Burning through the silent night
-Till morning brings the light
+Returning with the rain
+It crosses every quiet room
+And fades before the morning bloom
 
 [Verse 2]
-The streets are empty, cold december
-A faded scarf, a word I remember
-You walked away without a warning
-I count the seconds till the morning
-
-[Chorus]
-And I still hear your name
-Echoing like a flame
-Burning through the silent night
-Till morning brings the light
+The street is empty in December
+Your scarf still hangs beside the door
+I trace the words I still remember
+Then fold the note inside the drawer
 
 [Bridge]
 Maybe in another life
-I would have stayed with you tonight
-Maybe time will heal the scar
-And bring me back to who you are
+I would have stayed with you that night
+But every clock repeats the same
+And leaves me listening for your name
 
 [Outro]
-Your name... (fade)
+Your name returns, then slips away
 
 --- STYLE PROMPT ---
 
-Soft pop ballad, piano and strings, gentle female vocals, 80 BPM, intimate night atmosphere with emotional crescendo in the bridge.
+Intimate pop ballad at 80 BPM with soft piano, low strings and close, breathy female lead vocals. Sparse rainy-night verses grow into restrained backing harmonies and an emotional final chorus without turning triumphant.
 
 --- COVERMASTER ---
 
-COVERMASTER reads the title "Still Hear Your Name", the English lyrics, the intimate pop ballad style, rain/window imagery, memory, regret and an unresolved emotional ending. The cover should stay melancholic and should not turn the story into a happy reunion.
+COVERMASTER reads the title `Still Hear Your Name`, the rainy-night story, memory, regret and the unresolved ending. The visual specification remains melancholic and does not invent a reunion.
 
 --- S-COVER ---
 
@@ -133,11 +99,13 @@ Size: 543 × 807 px
 Aspect ratio: 543:807
 Simplified ratio: 181:269
 Text: Still Hear Your Name
-Prompt: Vertical Suno song cover, rainy night window, soft reflected city lights, a faded photo and scarf on a piano, intimate melancholic pop ballad atmosphere, gentle cinematic lighting, no cheerful reunion scene.
+Prompt: Vertical Suno song cover, rainy night window, soft reflected city lights, a faded photo and scarf beside a piano, intimate melancholic atmosphere, no cheerful reunion scene.
 ```
 
-## Shrnutí
+## Ověřené vlastnosti
 
-- User typed `topic love pop en 2`, then `0`, then `0`, then `ne`, then `2`, then `0`
-- Only **6 short inputs** for a complete song
-- Mostly `0` (yes) and one `ne` with a numeric choice
+- `ne` nabídlo 3 alternativy a `ano` přijalo volbu.
+- Brief s číslem `2` způsobil přesně 2 plná kola.
+- PROMPTER byl v každém kole.
+- Finalní `FAIL` spustil opravu a opakovanou kontrolu.
+- COVERMASTER se aktivoval až po `PASS`.

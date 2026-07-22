@@ -62,3 +62,20 @@ Tento deník zaznamenává klíčová rozhodnutí o směřování EasyTeam proje
 **Důvody:** UŽIVATEL chce GitHub jako primární úložiště. Session deníky a pracovní plány jsou dočasné.
 
 **Dopad:** Všechna důležitá rozhodnutí, changelog a dokumentace jdou do committed souborů.
+
+---
+
+### 2026-07-22 — Počet plných kol, TITLE a final gate
+
+**Rozhodnutí:** AUTO používá poslední samostatné kladné celé číslo z briefu jako počet kol; při chybějícím počtu použije 2. Každé plné kolo má přesně pořadí MODERÁTOR → HUDEBNÍK → BÁSNÍK → PROMPTER → KRITIK → MODERÁTOR. Stav obsahuje `current_title`, `current_lyrics` a `current_style`. Po všech kolech proběhne samostatný final gate KRITIK a COVERMASTER se aktivuje pouze po `PASS`.
+
+**Důvody:** Style Prompt musí vznikat souběžně s Lyrics, TITLE musí odpovídat aktuálnímu příběhu a žádný krátký příkaz nesmí obejít kontrolu kvality.
+
+**Dopad:**
+
+- `tema rytir metal cz 3` spustí 3 plná kola, `tema reggae pl 5` spustí 5; brief bez počtu spustí 2.
+- AUTO se mezi koly neptá na pokračování.
+- PROMPTER je povinný v každém kole.
+- BÁSNÍK navrhne TITLE nejpozději v prvním kole a aktualizuje ho po změně příběhu.
+- Finalní `FAIL` vrací práci odpovědné roli a KRITIK kontrolu opakuje až do `PASS`.
+- COVERMASTER pouze připravuje specifikaci S-coveru po finalním `PASS`; rozměr zůstává `543 × 807 px`.
