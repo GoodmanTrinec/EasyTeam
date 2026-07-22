@@ -202,7 +202,7 @@ Kandydat lokalny v1.1 gotowy do przeglądu diffu przed commitem.
 
 ### Status
 
-Kandydat lokalny gotowy do przeglądu diffu przed commitem. Test live wariantu `GO` nie został jeszcze uruchomiony.
+Wariant `GO` został opublikowany na `main`, wstawiony do Project Instructions i sprawdzony jednym testem live. Wynik dokumentacyjny testu jest lokalnie gotowy do przeglądu przed kolejnym commitem.
 
 ### Decyzja
 
@@ -221,4 +221,9 @@ Kandydat lokalny gotowy do przeglądu diffu przed commitem. Test live wariantu `
 - główny prompt ma **6126 znaków** i mieści się w limicie 8000,
 - repozytorium nie zawiera plików z UTF-8 BOM,
 - wszystkie sprawdzane reguły `GO`, rund, final gate i COVERMASTER przeszły kontrolę statyczną,
-- historyczny live test z komendą `0` pozostaje opisany jako baseline; nie jest przedstawiany jako wynik nowego wariantu `GO`.
+- nowy live Test 28 z `GO`: **PASS** dla struktury workflow — brief czekał na `GO`, wykonano dokładnie 3 pełne rundy, PROMPTER wystąpił 3 razy, finalny gate zakończył się `PASS`, a COVERMASTER uruchomił się dopiero potem,
+- sesja zakończyła się komunikatem o gotowości dla Suno bez menu tuningu,
+- decyzja artystyczna użytkownika: `dnes / quest` brzmi wystarczająco podobnie w szybkim czeskim punku i zostaje zaakceptowane jako funkcjonalny rym przybliżony,
+- użytkownik przetestował finalny utwór w Suno i samodzielnie przygotował S-cover według wygenerowanej specyfikacji,
+- praktyczny rezultat utworu oraz coveru został przez użytkownika oceniony pozytywnie; live acceptance EasyTeam v1.1 zakończył się pełnym `PASS`,
+- historyczny live test z komendą `0` pozostaje opisany jako baseline.
