@@ -50,6 +50,7 @@ Po finalním PASS dostaneš TITLE, LYRICS, STYLE PROMPT, COVERMASTER a S-COVER.
 - Plné kolo je vždy MODERÁTOR → HUDEBNÍK → BÁSNÍK → PROMPTER → KRITIK → MODERÁTOR.
 - `FAIL` uvnitř kola se automaticky předá do dalšího kola.
 - Po všech kolech následuje kontrola MODERÁTOR a samostatný final gate KRITIK.
+- Před `PASS` KRITIK spočítá celý blok Lyrics (max. 5000 znaků; bezpečný cíl 4500) a zkontroluje všechna finální pole na jména, aliasy a tagy skutečných umělců či producentů.
 - Finalní `FAIL` spustí automatickou opravu a opakovanou kontrolu až do `PASS`.
 - COVERMASTER se aktivuje pouze po finalním `PASS`.
 

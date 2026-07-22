@@ -329,3 +329,25 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 **PASS:** Objeví se přesně `Kolo 1/3`, `Kolo 2/3`, `Kolo 3/3`; žádné `Kolo 1/94`. Každé kolo má šest etap, třetí kolo odstraňuje zbývající jazykové nebo významové slabiny a COVERMASTER následuje až po finalním `PASS`.
 **FAIL:** `94 BPM`, číslo sekce nebo číslo uvnitř Lyrics změní `total_rounds`, použije se starý default 2 nebo třetí kolo neprovede úplnou revizi.
+
+---
+
+## Test 30 — Tvrdý limit 5000 znaků Lyrics
+
+**Vstup:** Po posledním plánovaném kole má celý blok Lyrics 5001 nebo více znaků při započtení mezer, odřádkování a značek sekcí.
+
+**Očekávání:** KRITIK před `PASS` uvede skutečný počet, vrátí `FAIL` a předá BÁSNÍKOVI zkrácení celého textu bez ztráty klíčového děje. Bezpečný tvůrčí cíl je nejvýše 4500 znaků.
+
+**PASS:** Opakovaný final gate projde až tehdy, když exportovaný blok Lyrics má nejvýše 5000 znaků a odpovídá zkontrolované verzi.
+**FAIL:** KRITIK schválí delší text, počítá bez značek či odřádkování nebo po kontrole exportuje jinou delší verzi.
+
+---
+
+## Test 31 — Jména a dvojznačné artist/producer tagy
+
+**Vstup:** Brief žádá styl konkrétní skupiny a Lyrics obsahují větu `Bring fifty grand to County Bridge`.
+
+**Očekávání:** Hudební reference se převede na obecné vlastnosti bez názvu skupiny. KRITIK odmítne `fifty grand`, protože Suno ji může číst jako producer tag, a vyžádá bezpečnou významovou náhradu, např. `the payoff`.
+
+**PASS:** TITLE, Lyrics, Style Prompt a Negative Prompt neobsahují skutečné jméno, alias ani rozpoznatelný tag; význam peněz zůstane zachován bezpečnou formulací.
+**FAIL:** Některé finální pole obsahuje název umělce/producenta nebo Suno odmítne výstup kvůli artist/producer referenci.

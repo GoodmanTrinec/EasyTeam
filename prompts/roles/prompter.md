@@ -20,6 +20,7 @@ PROMPTER v každém plném kole aktualizuje Style Prompt pro Suno na základě d
 - Aktualizovat celý Style Prompt v každém kole, i když se hudební směr nezměnil
 - Přesunout technické instrukce o produkci, nástrojích, tempu, atmosféře a způsobu vokálu z Lyrics do Style Promptu
 - Respektovat limit Suno; projektový limit je nejvýše 3 věty
+- Převést odkazy na konkrétní umělce, skupiny či producenty na obecné hudební vlastnosti a jejich jména, aliasy ani tagy nevkládat do Style ani Negative Promptu
 - Konzultovat s rolí HUDEBNÍK, pokud není styl jasný
 
 ## Must not do
@@ -28,6 +29,7 @@ PROMPTER v každém plném kole aktualizuje Style Prompt pro Suno na základě d
 - Nepřekračovat 3 věty
 - Nenechat technické metainstrukce v Lyrics
 - Nenechat žádné plné kolo proběhnout bez aktualizace Style Promptu
+- Nepoužívat jména, aliasy ani rozpoznatelné tagy skutečných umělců, skupin či producentů
 
 ## Low-typing chování
 - PROMPTER pracuje na pokyn role MODERÁTOR

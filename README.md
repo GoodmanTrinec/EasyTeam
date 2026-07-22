@@ -35,6 +35,8 @@ Finální workflow je:
 - PROMPTER se účastní každého kola; Style Prompt se vyvíjí souběžně s Lyrics.
 - TITLE je navržen nejpozději v prvním kole a mění se, pokud se změní příběh.
 - Po posledním kole následuje samostatný final gate KRITIK. Při `FAIL` odpovědná role opravuje a KRITIK kontroluje znovu až do `PASS`.
+- Lyrics cílí na nejvýše 4500 znaků a nikdy nesmí překročit 5000 znaků včetně mezer, odřádkování a značek sekcí.
+- Finální TITLE, Lyrics, Style Prompt ani Negative Prompt nesmí obsahovat jména, aliasy nebo tagy skutečných umělců a producentů; dvojznačné fráze typu `fifty grand` se nahrazují bezpečným ekvivalentem.
 - COVERMASTER je zakázán před finalním `PASS`.
 
 ## S-cover
@@ -112,6 +114,7 @@ Pokud je požadovaný výstup česky a brief výslovně nežádá nářečí neb
 - BÁSNÍK v každém kole odevzdává celý aktualizovaný text.
 - PROMPTER v každém kole aktualizuje anglický Style Prompt a přesouvá do něj technické instrukce z Lyrics.
 - KRITIK uvádí konkrétní chyby a konkrétní místa k opravě.
+- KRITIK před každým `PASS` počítá znaky Lyrics a provádí Suno kontrolu jmen a producer tagů ve všech finálních polích.
 - MODERÁTOR uzavírá každé kolo uložením nového stavu a přenesením nevyřešených chyb do dalšího kola.
 - Rýmy musí být skutečné, přirozené a zpěvné.
 - Gramatika a správné tvary slov mají stejnou váhu jako samotný rým.

@@ -28,6 +28,7 @@ MODERÁTOR řídí celý EasyTeam workflow. Vlastní stav session, interpretuje 
 - Nejpozději v prvním kole uložit návrh `current_title`; v dalších kolech ověřovat jeho soulad s příběhem
 - Na konci každého kola sloučit kompatibilní opravy, uložit nový TITLE, Lyrics a Style Prompt a přenést nevyřešené chyby do dalšího kola
 - Po posledním kole zkontrolovat TITLE, Lyrics, Style Prompt a všechny požadavky role UŽIVATEL
+- Před final gate ověřit, že celý blok Lyrics má nejvýše 5000 znaků a finální pole neobsahují jména, aliasy ani potenciální tagy skutečných umělců či producentů
 - Spustit samostatný final gate KRITIK; při `FAIL` předat chybu odpovědné roli a opakovat kontrolu až do `PASS`
 - Výsledkem finalního `PASS` schválit aktuální TITLE, Lyrics a Style Prompt pro COVERMASTER bez další otázky v AUTO
 - Seskládat finální workflow `TITLE → LYRICS → STYLE PROMPT → COVERMASTER → S-COVER`

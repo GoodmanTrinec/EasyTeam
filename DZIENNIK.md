@@ -242,3 +242,26 @@ Wariant `GO` został opublikowany na `main`, wstawiony do Project Instructions i
 - Bez podanej liczby EasyTeam wykonuje domyślnie 3 pełne rundy.
 - Jawnie podane 1, 2, 5 lub inne dodatnie liczby rund nadal są respektowane.
 - Parser rozpoznaje jawne określenia liczby rund albo końcową liczbę zwartego briefu, ale ignoruje tempo (`94 BPM`), lata, daty, numery sekcji (`[Verse 2]`) i liczby we wklejonych Lyrics.
+
+## 2026-07-22 — EasyTeam: live Test 3 i twarde bramki Suno
+
+### Przebieg
+
+- Brief: angielska opowieść noir w zapomnianym amerykańskim miasteczku, surowy old-school East Coast boom-bap, 3 rundy.
+- Workflow wykonał dokładnie trzy pełne rundy; PROMPTER uczestniczył w każdej, błędy z rund 1 i 2 przeszły dalej, a osobny final gate zwrócił `PASS` przed COVERMASTER.
+- Tytuł zmienił się z `Mercy Bell After Midnight` na `No Sirens in Mercy Bell`, zgodnie ze zmianą głównego motywu.
+
+### Błędy wykryte dopiero w praktycznym teście Suno
+
+- Pierwszy eksport przekroczył dopuszczalne 5000 znaków Lyrics, mimo że KRITIK i final gate zwróciły `PASS`.
+- Po skróceniu tekstu Suno odrzuciło frazę `fifty grand` jako producer tag/nazwę konkretnego twórcy, choć w historii oznaczała kwotę pieniędzy.
+- Bezpieczna poprawka zachowująca sens: `Bring the payoff to County Bridge—alone, no lights.`
+
+### Wnioski i poprawki
+
+- BÁSNÍK ma bezpieczny cel 4500 znaków, a 5000 znaków wraz ze spacjami, nowymi liniami i tagami sekcji jest limitem bezwzględnym.
+- KRITIK liczy cały blok Lyrics przed każdym `PASS`, podaje wynik przy przekroczeniu i wymusza skrócenie przed ponownym final gate.
+- TITLE, Lyrics, Style Prompt i Negative Prompt są sprawdzane pod kątem prawdziwych nazw, aliasów i tagów artystów/producentów oraz dwuznacznych fraz rozpoznawanych przez Suno.
+- Główny prompt po zmianie ma 6967 znaków, przeszedł kontrolę BOM i został zsynchronizowany z Project Instructions `Suno EasyTeam`.
+- Po poprawkach Suno przyjęło utwór, a słuchacz rozpoznał klimat kojarzony z Wu-Tang mimo braku tej nazwy w finalnych polach. Końcowy wynik Testu 3: **PASS**.
+- Pełne automatyczne potwierdzenie, że nowe bramki zadziałają już przy pierwszym eksporcie, pozostaje zadaniem kolejnego testu regresyjnego.

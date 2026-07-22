@@ -1,5 +1,35 @@
 # Prompt Regression Results — v1.1 — 2026-07-22
 
+## Live Test 3 — old-school hip-hop noir i bramki Suno
+
+- Wynik workflow przed praktyczną walidacją: **PASS strukturalny**
+- Wynik praktyczny w Suno po poprawkach: **PASS**
+- Brief: angielska narracyjna historia noir w zapomnianym amerykańskim miasteczku, surowy old-school East Coast boom-bap, 3 rundy
+- Finalny TITLE: `No Sirens in Mercy Bell`
+
+| Kontrola | Wynik |
+|---|:---:|
+| Brief czekał na osobne `GO` | PASS |
+| AUTO wykonało dokładnie `Kolo 1/3`, `2/3`, `3/3` | PASS |
+| Każda runda miała sześć etapów we właściwej kolejności | PASS |
+| PROMPTER uczestniczył w każdej rundzie | PASS |
+| KRITIK zwrócił konkretne `FAIL` w rundach 1 i 2 | PASS |
+| TITLE zmienił się wraz z głównym motywem historii | PASS |
+| Osobny final gate poprzedził COVERMASTER | PASS |
+| Final gate odrzucił Lyrics przekraczające 5000 znaków | **FAIL** |
+| Final gate wykrył frazę `fifty grand` jako ryzykowny producer tag | **FAIL** |
+| Suno przyjęło pierwszy eksport | **FAIL** |
+| Skrócona i oczyszczona wersja została przyjęta przez Suno | PASS |
+| Słuchacz rozpoznał klimat kojarzony z Wu-Tang mimo braku tej nazwy w finalnych polach | PASS |
+
+### Wniosek
+
+Trzy rundy i choreografia zadziałały poprawnie, ale strukturalny `FINAL GATE: PASS` początkowo nie oznaczał gotowości do Suno. Pierwszy eksport przekroczył limit 5000 znaków Lyrics. Skrócona wersja miała 4907 znaków, lecz Suno następnie odrzuciło `fifty grand` jako producer tag. Po zastąpieniu frazy przez `the payoff` Suno przyjęło utwór, a słuchacz rozpoznał klimat kojarzony z Wu-Tang bez umieszczania tej nazwy w finalnym wyjściu.
+
+Do głównego promptu, ról i QA dodano dwie obowiązkowe bramki: dokładne liczenie całego bloku Lyrics (bezpieczny cel 4500, twardy limit 5000) oraz kontrolę nazw, aliasów i potencjalnych artist/producer tagów we wszystkich finalnych polach. Test 3 ma końcowy wynik **PASS**, a główny prompt po zmianie ma 6967 znaków i nadal mieści się w limicie 8000. Pełne automatyczne potwierdzenie nowych bramek od pierwszego eksportu pozostaje scenariuszem kolejnego testu regresyjnego.
+
+---
+
 ## Aktuální live Test 29 — přepracování staré písně 2+1
 
 - Výsledek: **PASS**
@@ -93,5 +123,5 @@ UŽIVATEL otestoval finální TITLE, Lyrics a Style Prompt v Suno a podle specif
 - Dokumentace, role, workflow, příklady a checklist byly převedeny z `0` na samostatné `GO`.
 - `GO` má fungovat bez ohledu na velikost písmen, ale pouze jako celá zpráva po oříznutí.
 - Hlavní projekt nabízí pouze `GO` a `?`; dřívější `0`–`9`, `ano` a `ne` již nejsou globálními příkazy.
-- Aktuální hlavní prompt má 6126 znaků a 6616 bajtů v UTF-8, tedy zůstává pod limitem 8000 znaků.
+- Hlavní prompt měl při Testu 28 celkem 6126 znaků; po doplnění bran z Testu 3 má 6967 znaků a nadále zůstává pod limitem 8000.
 - Výsledek nového live Testu 28: **PASS**. Rým `dnes / quest` byl po poslechu UŽIVATELEM přijat jako funkční pro svižný punkový kontext.

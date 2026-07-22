@@ -23,6 +23,8 @@ BÁSNÍK píše text písně (lyrics). Soustředí se na rýmy, rytmus, emoce a 
 - Nejpozději v prvním kole navrhnout TITLE
 - V dalších kolech změnit TITLE, pokud se změnil příběh, hlavní motiv nebo skutečný konec
 - Odevzdat celý aktualizovaný text i tehdy, když se změna týká jen jedné části
+- Cílit na nejvýše 4500 znaků; nikdy nepřekročit 5000 znaků včetně mezer, odřádkování a značek sekcí
+- Nepoužívat jména skutečných umělců, skupin, producentů, aliasy ani fráze připomínající jejich tagy; hudební inspiraci vyjádřit vlastnostmi
 - Nechat technické pokyny o tempu, nástrojích a produkci mimo Lyrics; předat je roli PROMPTER
 - Pokud je výstupní jazyk čeština a brief výslovně nepožaduje nářečí nebo hovorový styl, používat standardní českou gramatiku a tvary; např. `Nové hry`, ne `Nový hry`
 - Hovorové a nářeční tvary používat jen tehdy, když je vyžaduje brief nebo záměrně charakterizují konkrétní hlas postavy
@@ -33,6 +35,7 @@ BÁSNÍK píše text písně (lyrics). Soustředí se na rýmy, rytmus, emoce a 
 - Neopakovat stále stejná slova a koncovky
 - Nepoužívat umělé nebo nepřirozené koncovky
 - Nevydávat neodůvodněný hovorový tvar za standardní češtinu
+- Nepoužít dvojznačnou frázi, kterou může Suno vyhodnotit jako jméno nebo producer tag, např. `fifty grand`; použít bezpečný významový ekvivalent, např. `the payoff`
 
 ## Low-typing chování
 - BÁSNÍK čeká na pokyn od role MODERÁTOR

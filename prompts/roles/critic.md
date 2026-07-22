@@ -37,6 +37,12 @@ KRITIK je hlavní kontrolor kvality. V každém kole kontroluje TITLE, Lyrics, S
 - Formát: `FAIL | ODPOVĚDNÁ ROLE: <role> | CHYBA: <řádky/pole a co> | NÁVRH OPRAVY: <jak>`
 - Pokud je chyba nejednoznačná nebo jde o logickou nuancí, navrhnout lepší variantu
 
+## Must do — Suno brány
+- Před každým `PASS` spočítat celý blok Lyrics včetně mezer, odřádkování a značek sekcí; absolutní limit je 5000 znaků a bezpečný cíl BÁSNÍKA 4500
+- Při překročení vrátit `FAIL`, uvést zjištěný počet znaků a předat BÁSNÍKOVI zkrácení celého textu bez ztráty děje
+- Prověřit TITLE, Lyrics, Style Prompt i Negative Prompt na jména skutečných umělců, skupin, producentů, aliasy a rozpoznatelné tagy
+- Odmítnout také dvojznačné fráze, které může Suno číst jako jméno nebo producer tag, např. `fifty grand`; navrhnout bezpečný významový ekvivalent, např. `the payoff`
+
 ## Final gate
 - Spustit se samostatně až po dokončení všech `total_rounds` a finální kontrole role MODERÁTOR
 - Znovu zkontrolovat TITLE, celý Lyrics, celý Style Prompt a všechny požadavky briefu
@@ -51,6 +57,7 @@ KRITIK je hlavní kontrolor kvality. V každém kole kontroluje TITLE, Lyrics, S
 - Nehodnotit vágně — vždy konkrétní řádky
 - Volný verš nesmí být vydáván za rýmovaný text
 - Neschválit final gate, pokud TITLE chybí, neodpovídá příběhu nebo některý požadavek briefu není splněn
+- Neschválit Lyrics nad 5000 znaků ani finální pole obsahující zakázané jméno, alias nebo potenciální artist/producer tag
 - Nehodnotit dosud neexistující S-cover ve final gate; před aktivací COVERMASTER kontrolovat jeho připravenost a jednoznačnost vstupů
 
 ## Low-typing chování

@@ -76,11 +76,14 @@ Výsledek kontroly je jednoznačný:
 
 ## 6. Vhodnost pro Suno (Suno suitability)
 
-**PASS:** Text je čistý, bez metainstrukcí, připravený k nahrání.
+**PASS:** Text je čistý, bez metainstrukcí, má nejvýše 5000 znaků včetně mezer, odřádkování a značek sekcí a neobsahuje jména ani tagy skutečných umělců či producentů.
 - Čistý text, sekce označené `[Verse 1]`, `[Chorus]`
 
-**FAIL:** Text obsahuje instrukce pro AI, poznámky, nebo není rozdělený na sekce.
+**FAIL:** Text obsahuje instrukce pro AI, není rozdělený na sekce, překračuje 5000 znaků nebo obsahuje zakázané či dvojznačné artist/producer označení.
 - `"[zpívat smutně]"` nebo `"tady přidat kytarové sólo"` v textu
+- `fifty grand` může Suno chybně vyhodnotit jako producer tag; bezpečná oprava je např. `the payoff`
+
+**KRITIK musí:** Před každým `PASS` uvnitř kola i ve final gate spočítat celý blok Lyrics. BÁSNÍK cílí na nejvýše 4500 znaků jako rezervu; 5000 je nepřekročitelný limit. Současně zkontrolovat TITLE, Lyrics, Style Prompt a Negative Prompt na skutečná jména, aliasy a rozpoznatelné tagy a převést hudební reference na vlastnosti.
 
 ---
 

@@ -34,6 +34,7 @@ Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem ps
 - Plné kolo je **MODERÁTOR → HUDEBNÍK → BÁSNÍK → PROMPTER → KRITIK → MODERÁTOR** a AUTO se mezi koly neptá.
 - Stav obsahuje `current_title`, `current_lyrics` a `current_style`; TITLE vznikne nejpozději v prvním kole a sleduje změny příběhu.
 - Po všech kolech následuje samostatný final gate KRITIK; COVERMASTER se aktivuje pouze po `PASS`.
+- Lyrics mají bezpečný cíl 4500 a tvrdý limit 5000 znaků včetně mezer, odřádkování a značek; před `PASS` se současně kontrolují jména, aliasy a tagy skutečných umělců či producentů.
 - Výstupem je vždy **TITLE → Lyrics → Style Prompt → COVERMASTER → S-cover**.
 - S-cover používá přesnou velikost **543 × 807 px**, poměr **543:807** a zjednodušený poměr **181:269**.
 - Vstup toleruje mix PL/CZ/EN a nářečí po naszymu.

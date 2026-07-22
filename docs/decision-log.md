@@ -119,3 +119,13 @@ Tento deník zaznamenává klíčová rozhodnutí o směřování EasyTeam proje
 **Důvody:** Live Test 2+1 přepracování staré písně ukázal, že po dvou kolech zůstal gramaticky vadný řádek a několik slabších formulací. Dodatečné třetí kolo bez nápovědy UŽIVATELE samo našlo chyby, opravilo je a prošlo finalním gate. Současně styl `94 BPM` odhalil riziko záměny tempa za počet kol.
 
 **Dopad:** Tři kola jsou bezpečným minimem pro nový brief bez počtu. UŽIVATEL může nadále výslovně vyžádat 1, 2, 5 nebo jiný kladný počet kol, ale `94 BPM`, `[Verse 2]` ani čísla ve vloženém textu počet kol nemění.
+
+---
+
+### 2026-07-22 — Tvrdé Suno brány pro Lyrics a artist/producer tagy
+
+**Rozhodnutí:** BÁSNÍK cílí na nejvýše 4500 znaků a absolutní limit Lyrics je 5000 znaků včetně mezer, odřádkování a značek sekcí. KRITIK počet ověřuje před každým `PASS` a ve final gate. TITLE, Lyrics, Style Prompt a Negative Prompt nesmí obsahovat jména, aliasy ani rozpoznatelné tagy skutečných umělců, skupin či producentů; odmítají se také dvojznačné fráze, které Suno takto vyhodnocuje.
+
+**Důvody:** Live Test 3 vytvořil strukturálně správný anglický old-school hip-hop příběh, ale praktické vložení do Suno nejprve selhalo kvůli překročení 5000 znaků a podruhé kvůli frázi `fifty grand`, kterou Suno označilo jako producer tag. Původní final gate obě vady chybně schválil.
+
+**Dopad:** Překročení limitu vždy vrací práci BÁSNÍKOVI. Odkazy na konkrétní umělce se převádějí na hudební vlastnosti a rizikové výrazy se nahrazují bezpečným významovým ekvivalentem, např. `fifty grand` → `the payoff`. COVERMASTER zůstává zablokován až do opakovaného finalního `PASS`.
