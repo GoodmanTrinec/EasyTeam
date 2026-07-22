@@ -1,7 +1,12 @@
-﻿﻿# KRITIK Rubric — hodnoticí kritéria kvality písně
+# KRITIK Rubric — hodnoticí kritéria kvality písně
 
-Tento rubric definuje, jak KRITIK hodnotí text písně, Style Prompt a finální návaznost na S-cover.  
-Každá kategorie obsahuje **PASS** a **FAIL** příklady. KRITIK musí vždy uvést konkrétní řádky.
+Tento rubric definuje, jak KRITIK v každém kole a v samostatném final gate hodnotí TITLE, Lyrics, Style Prompt, požadavky briefu a připravenost vstupů pro COVERMASTER.
+Každá kategorie obsahuje **PASS** a **FAIL** příklady. Při chybě KRITIK musí vždy uvést odpovědnou roli, konkrétní řádky nebo pole a způsob opravy.
+
+Výsledek kontroly je jednoznačný:
+
+- `PASS`
+- `FAIL | ODPOVĚDNÁ ROLE: <role> | CHYBA: <řádky/pole a co> | NÁVRH OPRAVY: <jak>`
 
 ---
 
@@ -16,7 +21,7 @@ Každá kategorie obsahuje **PASS** a **FAIL** příklady. KRITIK musí vždy uv
 - `"Rytíř bojoval s drakem / Celým svým životem takým"` — `drakem` × `takým` je násilné, vynucené
 
 **KRITIK musí:** Označit konkrétní dvojici řádků, např.:
-> CHYBA: řádky 3-4 "drakem / takým" — násilný rým, pouze koncovka -em/-ým bez zvukové shody  
+> CHYBA: řádky 3-4 "drakem / takým" — násilný rým, pouze koncovka -em/-ým bez zvukové shody
 > NÁVRH OPRAVY: "Rytíř bojoval s drakem / Posledním statečným krokem"
 
 ---
@@ -96,19 +101,29 @@ Každá kategorie obsahuje **PASS** a **FAIL** příklady. KRITIK musí vždy uv
 
 ---
 
-## 9. S-cover readiness
+## 9. TITLE a COVERMASTER readiness
 
-**PASS:** Finální výstup obsahuje jasný název, čitelný příběh, hudební styl, emoce, symboly a skutečný konec, takže COVERMASTER může vytvořit věrný S-cover.
+**PASS:** `current_title` je přítomný a odpovídá aktuálnímu příběhu. Finální stav obsahuje čitelný příběh, hudební styl, emoce, symboly a skutečný konec, takže COVERMASTER může po finalním `PASS` vytvořit věrnou specifikaci S-coveru.
 - `Název: Poslední hlídka`, lyrics končí tichým smířením a S-cover používá tmavou noční stráž, ne oslavný vítězný motiv.
 
-**FAIL:** Text nebo finále nedává roli COVERMASTER dost informací, nebo cover mění význam příběhu.
-- Píseň končí ztrátou, ale S-cover navrhuje slunečný triumf a šťastné shledání.
-- S-cover používá poměr `443:591` nebo obecný `3:4` místo `543:807`.
+**FAIL:** TITLE chybí, zůstal po změně příběhu neaktuální nebo finální stav nedává roli COVERMASTER dost informací.
+- Příběh se změnil z vítězství na ztrátu, ale TITLE stále slibuje triumf.
+- Skutečný konec nebo klíčové symboly nejsou z TITLE a Lyrics jednoznačně určitelné.
 
-**KRITIK / COVERMASTER musí:** Při finále hlídat, že S-cover zachovává příběh, používá přesnou velikost `543 × 807 px`, poměr `543:807`, zjednodušený poměr `181:269` a správná pravidla textu.
+**KRITIK musí před aktivací COVERMASTER:** Ověřit TITLE, jednoznačnost příběhu, stylu, emocí, symbolů a skutečného konce. Nehodnotí ještě neexistující S-cover.
+
+**COVERMASTER musí po finalním `PASS`:** Zachovat příběh a skutečný konec, nepřidat slunečný triumf ke ztrátě, použít přesnou velikost `543 × 807 px`, poměr `543:807`, zjednodušený poměr `181:269` a správná pravidla textu. Poměry `443:591` a obecný `3:4` jsou neplatné.
 
 ---
 
 ## Obecné pravidlo
 
 **Text nemůže projít jen proto, že obsahuje správnou myšlenku. Musí zároveň fungovat rytmicky, zvukově a při zpěvu.**
+
+## Použití v kole a ve final gate
+
+- Každé plné kolo obsahuje kontrolu KRITIK po aktualizaci Lyrics i Style Promptu.
+- `FAIL` uvnitř kola se předá závěrečnému MODERÁTOR, který uloží kompatibilní opravy a nevyřešené chyby pro další kolo.
+- Po všech kolech MODERÁTOR zkontroluje TITLE, Lyrics, Style Prompt a brief a spustí samostatný final gate KRITIK.
+- Při finalním `FAIL` odpovědná role opraví celý dotčený artefakt a KRITIK kontrolu opakuje bez pevného limitu.
+- COVERMASTER nesmí být aktivován, dokud final gate nevrátí `PASS`.

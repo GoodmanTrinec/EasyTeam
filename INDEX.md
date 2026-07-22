@@ -1,6 +1,6 @@
 # EasyTeam — Index projektu
 
-EasyTeam je **markdown prompt-pack pro ChatGPT Pro**, ne aplikace.  
+EasyTeam je **markdown prompt-pack pro ChatGPT Pro**, ne aplikace.
 Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem psaní.
 
 ## Struktura
@@ -30,7 +30,11 @@ Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem ps
 - **Žádné placené API ani modely** nad rámec stávajícího ChatGPT Pro.
 - Pokud by něco vyžadovalo platbu, EasyTeam pouze varuje a nepřipojí to.
 - GitHub je primární zdroj pravdy; do repozitáře patří jen oficiální markdown, příklady, QA a konfigurace.
-- Výstupem je vždy **Lyrics → Style Prompt → COVERMASTER → S-cover**.
+- Počet kol v AUTO pochází z briefu; chybějící počet znamená 2 kola.
+- Plné kolo je **MODERÁTOR → HUDEBNÍK → BÁSNÍK → PROMPTER → KRITIK → MODERÁTOR** a AUTO se mezi koly neptá.
+- Stav obsahuje `current_title`, `current_lyrics` a `current_style`; TITLE vznikne nejpozději v prvním kole a sleduje změny příběhu.
+- Po všech kolech následuje samostatný final gate KRITIK; COVERMASTER se aktivuje pouze po `PASS`.
+- Výstupem je vždy **TITLE → Lyrics → Style Prompt → COVERMASTER → S-cover**.
 - S-cover používá přesnou velikost **543 × 807 px**, poměr **543:807** a zjednodušený poměr **181:269**.
 - Vstup toleruje mix PL/CZ/EN a nářečí po naszymu.
 
@@ -50,5 +54,6 @@ Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem ps
 - examples/empty-zero-recovery.md — ukázka prázdného startu
 - qa/critic-rubric.md — kritéria hodnocení kvality
 - qa/prompt-regression-checklist.md — regresní checklist
+- qa/regression-test-results.md — poslední výsledky logických regresních testů
 - docs/github-workflow.md — workflow s GitHubem
 - docs/decision-log.md — rozhodovací deník

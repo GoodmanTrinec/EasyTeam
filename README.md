@@ -15,14 +15,25 @@ Proto se práce rozdělila mezi několik specializovaných rolí:
 - **PROMPTER** připravuje hudební zadání pro Suno.
 - **KRITIK** hledá slabá místa, kontroluje rýmy, rytmus, zpěvnost a gramatickou správnost.
 - **MODERÁTOR** řídí jednotlivá kola a hlídá, aby každá nová verze byla skutečně lepší.
-- **COVERMASTER** vytváří finální S-cover až po schválení Lyrics, Style Promptu a názvu písně.
+- **COVERMASTER** připravuje specifikaci finálního S-coveru až po schválení Lyrics, Style Promptu a názvu písně ve finalním gate.
 - **UŽIVATEL** určuje téma, počet kol, jazyk, styl, název a konečný směr skladby.
 
-Tak vznikl systém tvůrčích kol. Na začátku každého kola MODERÁTOR shrne aktuální text a hudební styl. HUDEBNÍK, BÁSNÍK a KRITIK spolupracují na lepší verzi. COVERMASTER se těchto skladatelských kol neúčastní; aktivuje se až po finálním schválení písně.
+Tak vznikl systém tvůrčích kol. Každé plné kolo má přesně šest etap: MODERÁTOR otevře kolo a shrne TITLE, LYRICS a STYLE; HUDEBNÍK předá hudební doporučení; BÁSNÍK aktualizuje celý text i pracovní název; PROMPTER aktualizuje anglický Style Prompt; KRITIK vrátí `PASS` nebo konkrétní `FAIL`; MODERÁTOR sloučí změny a uloží nový stav. COVERMASTER se těchto kol neúčastní a aktivuje se až po samostatném final gate KRITIK ukončeném výsledkem `PASS`.
 
 Finální workflow je:
 
-**LYRICS → STYLE PROMPT → COVERMASTER → S-COVER**
+**TITLE → LYRICS → STYLE PROMPT → final KRITIK PASS → COVERMASTER → S-COVER**
+
+## AUTO a počet kol
+
+- Počet kol pochází z posledního samostatného kladného celého čísla v briefu: `tema rytir metal cz 3` spustí 3 plná kola, `tema reggae pl 5` spustí 5.
+- Když brief počet kol neobsahuje, EasyTeam použije bezpečný default 2 kola.
+- AUTO provede všechna kola bez otázek mezi nimi.
+- Jedno plné kolo vždy obsahuje MODERÁTOR → HUDEBNÍK → BÁSNÍK → PROMPTER → KRITIK → MODERÁTOR.
+- PROMPTER se účastní každého kola; Style Prompt se vyvíjí souběžně s Lyrics.
+- TITLE je navržen nejpozději v prvním kole a mění se, pokud se změní příběh.
+- Po posledním kole následuje samostatný final gate KRITIK. Při `FAIL` odpovědná role opravuje a KRITIK kontroluje znovu až do `PASS`.
+- COVERMASTER je zakázán před finalním `PASS`.
 
 ## S-cover
 
@@ -90,14 +101,19 @@ Rým nesmí být vytvořen za cenu gramatické chyby nebo nepřirozené formulac
 
 ## Základní pravidla EasyTeam
 
-- MODERÁTOR zahajuje každé kolo shrnutím aktuálního textu a hudebního stylu.
+- Stav obsahuje `current_title`, `current_lyrics`, `current_style`, `current_round` a `total_rounds`.
+- MODERÁTOR zahajuje každé kolo číslem `X/N`, shrnutím aktuálního TITLE, LYRICS a STYLE a konkrétním cílem kola.
 - Každé další kolo musí přinést skutečné zlepšení.
+- HUDEBNÍK v každém kole analyzuje žánr, tempo, atmosféru, nástroje, strukturu a vokál.
+- BÁSNÍK v každém kole odevzdává celý aktualizovaný text.
+- PROMPTER v každém kole aktualizuje anglický Style Prompt a přesouvá do něj technické instrukce z Lyrics.
 - KRITIK uvádí konkrétní chyby a konkrétní místa k opravě.
+- MODERÁTOR uzavírá každé kolo uložením nového stavu a přenesením nevyřešených chyb do dalšího kola.
 - Rýmy musí být skutečné, přirozené a zpěvné.
 - Gramatika a správné tvary slov mají stejnou váhu jako samotný rým.
 - Text a hudební styl se odevzdávají odděleně.
-- COVERMASTER se aktivuje až po schválení Lyrics, Style Promptu a názvu písně.
-- Finální výstup musí obsahovat čisté **Lyrics**, samostatný **Style Prompt**, sekci **COVERMASTER** a finální **S-cover**.
+- COVERMASTER se aktivuje až po dokončení všech kol a finalním `PASS` pro TITLE, Lyrics, Style Prompt a požadavky briefu.
+- Finální výstup musí obsahovat **TITLE**, čisté **Lyrics**, samostatný **Style Prompt**, sekci **COVERMASTER** a finální **S-cover**.
 - UŽIVATEL má konečné slovo a určuje směr skladby.
 
 ## Rychlý start
@@ -110,8 +126,8 @@ Rým nesmí být vytvořen za cenu gramatické chyby nebo nepřirozené formulac
    ```
 
 3. Poté napiš `0` pro AUTO režim.
-4. Odpovídej `ano` / `ne` / čísly — EasyTeam udělá zbytek.
-5. Po dokončení dostaneš `--- LYRICS ---`, `--- STYLE PROMPT ---`, `--- COVERMASTER ---` a `--- S-COVER ---`.
+4. AUTO provede všechna 3 plná kola bez dotazů mezi koly.
+5. Po finalním `PASS` dostaneš `--- TITLE ---`, `--- LYRICS ---`, `--- STYLE PROMPT ---`, `--- COVERMASTER ---` a `--- S-COVER ---`.
 
 ## Struktura projektu
 
@@ -129,6 +145,7 @@ Rým nesmí být vytvořen za cenu gramatické chyby nebo nepřirozené formulac
 | `examples/*.md` | Ukázkové session |
 | `qa/critic-rubric.md` | Kritéria hodnocení kvality |
 | `qa/prompt-regression-checklist.md` | Regresní checklist pro změny v promptech |
+| `qa/regression-test-results.md` | Poslední výsledky logických regresních testů |
 | `docs/github-workflow.md` | Workflow s ChatGPT + GitHub |
 | `docs/decision-log.md` | Rozhodovací deník |
 
@@ -144,8 +161,8 @@ Rým nesmí být vytvořen za cenu gramatické chyby nebo nepřirozené formulac
 | `5` | Zkrátit |
 | `6` | Více emocí |
 | `7` | Více komerční |
-| `8` | Zobraz stav |
-| `9` | Finalizovat Lyrics, Style Prompt, COVERMASTER a S-cover |
+| `8` | Zobraz stav včetně TITLE, Lyrics, Style, čísla kola a chyb; nic neměň |
+| `9` | Dokonči zbývající kola a final gate; COVERMASTER spusť jen po `PASS` |
 | `ano` | Souhlas |
 | `ne` | Zastavit, nabídnout alternativy |
 | `?` | Nápověda |
@@ -162,6 +179,7 @@ Rým nesmí být vytvořen za cenu gramatické chyby nebo nepřirozené formulac
 - [Seznam příkazů](workflows/short-commands.md)
 - [KRITIK rubric](qa/critic-rubric.md)
 - [Regresní checklist](qa/prompt-regression-checklist.md)
+- [Výsledky regresních testů](qa/regression-test-results.md)
 - [Ukázkové session](examples/czech-folk-metal-low-typing.md)
 - [GitHub workflow](docs/github-workflow.md)
 - [Rozhodovací deník](docs/decision-log.md)

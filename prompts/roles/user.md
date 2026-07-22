@@ -1,4 +1,4 @@
-﻿﻿# UŽIVATEL — role
+# UŽIVATEL — role
 
 ## Účel
 UŽIVATEL zadává téma, počet kol, jazyk, styl, název písně, volitelný text coveru a finální směr. Má konečné slovo.
@@ -16,9 +16,10 @@ UŽIVATEL zadává téma, počet kol, jazyk, styl, název písně, volitelný te
 
 ## Must do
 - Zadá téma, pokud chce začít novou píseň
-- Schválí nebo zadá název písně před aktivací role COVERMASTER
+- Může zadat vlastní název; jinak BÁSNÍK navrhne TITLE nejpozději v prvním kole
 - Odpovídá `ano` / `ne` / číslem na otázky EasyTeam
 - Může kdykoli změnit směr příkazem `3`
+- Nemusí potvrzovat pokračování mezi koly AUTO; všechna požadovaná kola proběhnou automaticky
 
 ## Must not do
 - Není vyžadováno psát dlouhé věty

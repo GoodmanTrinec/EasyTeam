@@ -1,4 +1,4 @@
-﻿# Example: Empty context — `0` recovery
+# Example: Empty context — `0` recovery
 
 Ukázka, co se stane, když UŽIVATEL pošle `0` bez jakéhokoli předchozího kontextu.
 EasyTeam se nezeptá dlouhým formulářem, ale položí jednu krátkou číselnou otázku.
@@ -26,10 +26,8 @@ EasyTeam: Téma láska. Styl: 1) pop 2) rock 3) folk?
 UŽIVATEL: 2
 EasyTeam: Jazyk: 1) česky 2) polsky 3) anglicky 4) po naszymu?
 UŽIVATEL: 1
-EasyTeam: Počet kol: 1) 2 kola 2) 3 kola 3) 5 kol?
-UŽIVATEL: 0 (nebo 1 pro výchozí 2 kola)
-
-EasyTeam: Brief: láska, rock, česky, 2 kola. Spouštím AUTO. Kolo 1/2...
+EasyTeam: Brief: láska, rock, česky. Počet kol nebyl zadán, používám default 2. Spouštím AUTO. Kolo 1/2...
+EasyTeam: [provede dvě plná kola bez otázky mezi nimi, potom final gate]
 ```
 
 ### Varianta B — UŽIVATEL napíše `ne`
@@ -61,4 +59,5 @@ EasyTeam: Rozumím: téma moře, pop, česky, 2 kola. Spouštím AUTO...
 
 - `0` bez kontextu → jedna krátká číselná otázka
 - UŽIVATEL vybere číslo nebo napíše `ne` pro vlastní vstup
-- Během 3-4 krátkých interakcí je hotový brief a AUTO startuje
+- Chybějící počet kol → bezpečný default 2 bez další otázky
+- Po doplnění minimálního briefu AUTO provede všechna kola bez dotazu mezi nimi
