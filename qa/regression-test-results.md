@@ -1,6 +1,34 @@
 # Prompt Regression Results — v1.1 — 2026-07-22
 
-## Aktuální souhrn
+## Aktuální live Test 29 — přepracování staré písně 2+1
+
+- Výsledek: **PASS**
+- Metoda: živý test v projektu ChatGPT `Suno EasyTeam`
+- Materiál: starší český text `MUŽ, KTERÝ PRODÁVAL VČEREJŠEK`
+- Styl obsahoval `94 BPM` a zdrojové značky `[Verse 1]`, `[Verse 2]`
+- Průběh: dvě původní kola + jedna dodatečná úplná revize `Kolo 3/3` bez nápovědy o konkrétní chybě
+
+| Kontrola | Výsledek |
+|---|:---:|
+| Původní dvě kola obsahovala všech šest povinných etap | PASS |
+| PROMPTER aktualizoval Style Prompt v obou původních kolech | PASS |
+| Po dvou kolech workflow provedl samostatný final gate | PASS |
+| Externí kontrola odhalila přehlédnutý chybný řádek `její tvář vybledne, jako by nebylo` | FAIL po 2 kolech |
+| Dodatečné `Kolo 3/3` bylo spuštěno bez označení chybného řádku | PASS |
+| Třetí kolo samo našlo uvedený řádek i další jazykové a významové slabiny | PASS |
+| Třetí kolo obsahovalo MODERÁTOR → HUDEBNÍK → BÁSNÍK → PROMPTER → KRITIK → MODERÁTOR | PASS |
+| BÁSNÍK aktualizoval celý text a PROMPTER celý anglický Style Prompt | PASS |
+| Nový samostatný final gate skončil `PASS` | PASS |
+| COVERMASTER následoval až po novém finalním `PASS` | PASS |
+| Session skončila bez tuningového menu | PASS |
+
+### Závěr UŽIVATELE a rozhodnutí
+
+Live Test 2+1 potvrdil, že třetí plné kolo výsledek skutečně zlepšuje, místo aby pouze opakovalo předchozí hodnocení. UŽIVATEL schválil výsledek testu jako `PASS` a rozhodl o změně bezpečného defaultu ze 2 na 3 kola.
+
+Test ještě použil výslovné `Počet kol: 2 kola`, aby starý parser nezaměnil `94 BPM` za počet kol; třetí kolo bylo spuštěno samostatně. Nová pravidla pro ignorování BPM a čísel v Lyrics byla doplněna až po testu a vyžadují další live spuštění bez výslovného počtu kol.
+
+## Předchozí live Test 28 s `GO`
 
 - Výsledek aktuálního live Testu 28 s `GO`: **1 PASS / 0 FAIL**
 - Metoda: jeden nový živý end-to-end acceptance test v projektu ChatGPT `Suno EasyTeam`

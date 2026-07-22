@@ -26,8 +26,9 @@ Finální workflow je:
 
 ## AUTO a počet kol
 
-- Počet kol pochází z posledního samostatného kladného celého čísla v briefu: `tema rytir metal cz 3` nastaví 3 plná kola, `tema reggae pl 5` nastaví 5.
-- Když brief počet kol neobsahuje, EasyTeam použije bezpečný default 2 kola.
+- Počet kol pochází z výslovného údaje typu `3 kola`, `5 rund` nebo `počet kol: 3`; u kompaktního briefu může být také posledním samostatným číslem: `tema rytir metal cz 3` nastaví 3 plná kola.
+- Čísla popisující obsah nebo styl (`94 BPM`, rok, datum, `[Verse 2]`, čísla uvnitř dodaných Lyrics) se za počet kol nepovažují.
+- Když brief počet kol neobsahuje, EasyTeam použije bezpečný default 3 kola.
 - Samotný brief pouze inicializuje stav. AUTO začne až po samostatném příkazu `GO`.
 - AUTO provede všechna kola bez otázek mezi nimi.
 - Jedno plné kolo vždy obsahuje MODERÁTOR → HUDEBNÍK → BÁSNÍK → PROMPTER → KRITIK → MODERÁTOR.

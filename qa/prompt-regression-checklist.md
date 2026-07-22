@@ -207,7 +207,7 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 **Očekávání:** EasyTeam nastaví `total_rounds: 1`, provede právě jedno plné šestietapové kolo a poté finální kontrolu MODERÁTOR a final gate KRITIK.
 
 **PASS:** Objeví se `Kolo 1/1`; neobjeví se `Kolo 2`; PROMPTER je uvnitř kola a COVERMASTER až po finalním `PASS`.
-**FAIL:** AUTO vždy spustí 2 kola, vynechá některou etapu nebo přeskočí final gate.
+**FAIL:** AUTO použije jiný počet kol, vynechá některou etapu nebo přeskočí final gate.
 
 ---
 
@@ -218,7 +218,7 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 **Očekávání:** EasyTeam automaticky provede tři plná kola bez otázky mezi nimi.
 
 **PASS:** Objeví se přesně `Kolo 1/3`, `Kolo 2/3`, `Kolo 3/3`, v každém šest etap ve správném pořadí.
-**FAIL:** Počet kol je 2, AUTO se mezi koly zastaví nebo některé kolo není plné.
+**FAIL:** AUTO použije jiný počet kol, mezi koly se zastaví nebo některé kolo není plné.
 
 ---
 
@@ -229,7 +229,7 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 **Očekávání:** EasyTeam automaticky provede pět plných kol bez otázky mezi nimi.
 
 **PASS:** Objeví se přesně kola `1/5` až `5/5`, každé včetně PROMPTER a závěrečného MODERÁTOR.
-**FAIL:** AUTO skončí dříve, vždy použije 2 kola nebo se ptá, zda pokračovat.
+**FAIL:** AUTO skončí dříve, použije jiný počet kol nebo se ptá, zda pokračovat.
 
 ---
 
@@ -237,9 +237,9 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 **Vstup:** `tema more pop cz` → `GO`
 
-**Očekávání:** EasyTeam použije bezpečný default `total_rounds: 2` bez další otázky o počtu kol.
+**Očekávání:** EasyTeam použije bezpečný default `total_rounds: 3` bez další otázky o počtu kol.
 
-**PASS:** Objeví se `Kolo 1/2` a `Kolo 2/2`, bez třetího kola a bez otázky mezi nimi.
+**PASS:** Objeví se přesně `Kolo 1/3`, `Kolo 2/3` a `Kolo 3/3`, bez otázky mezi nimi.
 **FAIL:** EasyTeam požaduje počet kol, použije jiný default nebo provede jiný počet kol.
 
 ---
@@ -318,3 +318,14 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 **PASS:** Brief sám nespustí kolo; po `GO` se objeví přesně `Kolo 1/3`, `2/3`, `3/3`, každé se šesti etapami. Finální TITLE, Lyrics, Style Prompt, COVERMASTER a S-COVER vzniknou až po `final_gate: pass`; české Lyrics neobsahují neodůvodněný tvar `Nový hry`; konec neobsahuje tuningové menu.
 **FAIL:** Prompt přesahuje 8000 znaků, potřebuje druhý source, brief spustí AUTO bez `GO`, chybí kolo/role, KRITIK schválí chybný český tvar, COVERMASTER předběhne finalní `PASS` nebo hlavní projekt nabídne tuning.
+
+---
+
+## Test 29 — Čísla v BPM a Lyrics nejsou počet kol
+
+**Vstup:** Brief bez údaje o počtu kol obsahující `dark trip hop, 94 BPM` a vložený starý text se značkami `[Verse 1]` a `[Verse 2]` → `GO`.
+
+**Očekávání:** EasyTeam ignoruje `94`, `1` a `2` jako čísla patřící ke stylu a Lyrics, použije nový default `total_rounds: 3` a provede tři plná kola. Třetí kolo znovu kontroluje celý TITLE, LYRICS a STYLE, místo aby pouze opakovalo předchozí `PASS`.
+
+**PASS:** Objeví se přesně `Kolo 1/3`, `Kolo 2/3`, `Kolo 3/3`; žádné `Kolo 1/94`. Každé kolo má šest etap, třetí kolo odstraňuje zbývající jazykové nebo významové slabiny a COVERMASTER následuje až po finalním `PASS`.
+**FAIL:** `94 BPM`, číslo sekce nebo číslo uvnitř Lyrics změní `total_rounds`, použije se starý default 2 nebo třetí kolo neprovede úplnou revizi.

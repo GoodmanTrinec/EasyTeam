@@ -148,7 +148,7 @@ Zakończone i połączone z gałęzią `main`.
 
 ### Zakres wdrożenia
 
-- AUTO pobiera liczbę pełnych rund z ostatniej samodzielnej dodatniej liczby całkowitej w briefie; bez liczby używa 2 rund.
+- AUTO pobierało liczbę pełnych rund z ostatniej samodzielnej dodatniej liczby całkowitej w briefie; bez liczby używało 2 rund. Regułę zastąpiono później bezpiecznym parserem i domyślnymi 3 rundami po live Teście 2+1.
 - Każda pełna runda ma sześć obowiązkowych etapów: MODERATOR → MUZYK → POETA → PROMPTCISTA → KRYTYK → MODERATOR.
 - PROMPTCISTA uczestniczy w każdej rundzie, a Style Prompt rozwija się równolegle z Lyrics.
 - Stan zawiera `current_title`, `current_lyrics` i `current_style`; TITLE powstaje najpóźniej w pierwszej rundzie i zmienia się razem z historią.
@@ -227,3 +227,18 @@ Wariant `GO` został opublikowany na `main`, wstawiony do Project Instructions i
 - użytkownik przetestował finalny utwór w Suno i samodzielnie przygotował S-cover według wygenerowanej specyfikacji,
 - praktyczny rezultat utworu oraz coveru został przez użytkownika oceniony pozytywnie; live acceptance EasyTeam v1.1 zakończył się pełnym `PASS`,
 - historyczny live test z komendą `0` pozostaje opisany jako baseline.
+
+## 2026-07-22 — EasyTeam: live Test 2+1 i trzy domyślne rundy
+
+### Wynik testu
+
+- Przeróbka starego utworu `MUŽ, KTERÝ PRODÁVAL VČEREJŠEK` przeszła dwie rundy, a następnie jedną dodatkową pełną rundę `3/3` bez wskazywania konkretnego błędu.
+- Po dwóch rundach finalny KRYTYK błędnie zaakceptował m.in. wers `její tvář vybledne, jako by nebylo`.
+- Trzecia runda samodzielnie wykryła ten błąd oraz kolejne słabe lub nienaturalne sformułowania, poprawiła pełne Lyrics i Style Prompt, wykonała wszystkie sześć etapów i zakończyła się nowym finalnym `PASS`.
+- COVERMASTER uruchomił się dopiero po finalnym `PASS`. Wynik live Testu 2+1: **PASS**.
+
+### Zmiana reguły
+
+- Bez podanej liczby EasyTeam wykonuje domyślnie 3 pełne rundy.
+- Jawnie podane 1, 2, 5 lub inne dodatnie liczby rund nadal są respektowane.
+- Parser rozpoznaje jawne określenia liczby rund albo końcową liczbę zwartego briefu, ale ignoruje tempo (`94 BPM`), lata, daty, numery sekcji (`[Verse 2]`) i liczby we wklejonych Lyrics.

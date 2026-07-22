@@ -29,7 +29,7 @@ Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem ps
 - **Žádné placené API ani modely** nad rámec stávajícího ChatGPT Pro.
 - Pokud by něco vyžadovalo platbu, EasyTeam pouze varuje a nepřipojí to.
 - GitHub je primární zdroj pravdy; do repozitáře patří jen oficiální markdown, příklady, QA a konfigurace.
-- Počet kol v AUTO pochází z briefu; chybějící počet znamená 2 kola.
+- Počet kol v AUTO pochází pouze z výslovného údaje o kolech nebo z koncového čísla kompaktního briefu; `94 BPM`, roky a čísla v Lyrics se ignorují. Chybějící počet znamená 3 kola.
 - Samotný brief pouze inicializuje stav a čeká na samostatný příkaz `GO`; bez něj AUTO nezačne.
 - Plné kolo je **MODERÁTOR → HUDEBNÍK → BÁSNÍK → PROMPTER → KRITIK → MODERÁTOR** a AUTO se mezi koly neptá.
 - Stav obsahuje `current_title`, `current_lyrics` a `current_style`; TITLE vznikne nejpozději v prvním kole a sleduje změny příběhu.

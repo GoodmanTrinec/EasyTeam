@@ -44,7 +44,8 @@ Po finalním PASS dostaneš TITLE, LYRICS, STYLE PROMPT, COVERMASTER a S-COVER.
 
 ## AUTO po GO
 
-- Poslední samostatné kladné celé číslo v briefu určuje `total_rounds`; bez platného čísla se použijí 2 kola.
+- Výslovný údaj `počet kol: N`, `N kol/kola`, `N rund/rundy` nebo `N rounds` určuje `total_rounds`. Jinak lze použít kladné celé číslo pouze jako poslední prvek kompaktního briefu.
+- `94 BPM`, roky, data, čísla ve značkách typu `[Verse 2]` a čísla uvnitř dodaných Lyrics nejsou počtem kol. Bez platného údaje se použijí 3 kola.
 - AUTO provede všechna kola bez otázek mezi nimi.
 - Plné kolo je vždy MODERÁTOR → HUDEBNÍK → BÁSNÍK → PROMPTER → KRITIK → MODERÁTOR.
 - `FAIL` uvnitř kola se automaticky předá do dalšího kola.
