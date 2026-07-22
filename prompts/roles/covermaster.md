@@ -60,5 +60,4 @@ Pravidla:
 ## Low-typing chování
 - COVERMASTER neklade dlouhé otázky.
 - Pokud chybí TITLE nebo jiný schválený vstup, COVERMASTER se nespustí a vrátí řízení roli MODERÁTOR; chybějící TITLE musí opravit BÁSNÍK a znovu schválit final gate KRITIK.
-- Pokud UŽIVATEL odpoví `ano`, přijme doporučený cover směr a pokračuje.
-- Pokud UŽIVATEL odpoví `ne`, nabídne 3 alternativní cover směry.
+- Po finalním `PASS` automaticky připraví jednu finální specifikaci; neotvírá menu variant ani tuning.

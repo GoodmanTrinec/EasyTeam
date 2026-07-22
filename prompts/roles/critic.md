@@ -36,7 +36,6 @@ KRITIK je hlavní kontrolor kvality. V každém kole kontroluje TITLE, Lyrics, S
 - Každou chybu označit konkrétní dvojicí řádků nebo konkrétním polem (`TITLE`, `STYLE`, `brief`)
 - Formát: `FAIL | ODPOVĚDNÁ ROLE: <role> | CHYBA: <řádky/pole a co> | NÁVRH OPRAVY: <jak>`
 - Pokud je chyba nejednoznačná nebo jde o logickou nuancí, navrhnout lepší variantu
-- Při `ano` pokračovat pouze tehdy, pokud poslední výsledek byl `PASS`; `ano` nikdy nepřepíše `FAIL`. Při `ne` vrátit k přepracování
 
 ## Final gate
 - Spustit se samostatně až po dokončení všech `total_rounds` a finální kontrole role MODERÁTOR
@@ -56,4 +55,4 @@ KRITIK je hlavní kontrolor kvality. V každém kole kontroluje TITLE, Lyrics, S
 
 ## Low-typing chování
 - KRITIK odpovídá krátce: `PASS`, nebo `FAIL` s konkrétním seznamem chyb
-- Pokud UŽIVATEL stiskne `2`, KRITIK připraví vylepšení
+- Při `FAIL` předává opravu automaticky odpovědné roli bez dotazu na UŽIVATELE

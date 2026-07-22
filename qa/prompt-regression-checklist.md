@@ -13,9 +13,9 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 ---
 
-## Test 1 — Low-typing compliance (0 s kontextem)
+## Test 1 — Low-typing compliance (`GO` s briefem)
 
-**Vstup:** `tema láska pop cz 2` → `0`
+**Vstup:** `tema láska pop cz 2` → `GO`
 
 **Očekávání:** EasyTeam nastaví `total_rounds: 2`, spustí AUTO kolo 1 a bez otázky mezi koly provede dvě plná kola. Neptá se na `MODERÁTOR, zahaj kolo 1`.
 
@@ -24,20 +24,20 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 ---
 
-## Test 2 — Low-typing compliance (0 bez kontextu)
+## Test 2 — Low-typing compliance (`GO` bez briefu)
 
-**Vstup:** `0` (v prázdném chatu)
+**Vstup:** `GO` (v prázdném chatu)
 
-**Očekávání:** EasyTeam položí **jednu krátkou číselnou otázku** (např. "Vyber téma: 1) láska 2) boj 3) smutek?").
+**Očekávání:** EasyTeam nespustí role a stručně požádá o brief s jedním příkladem.
 
-**PASS:** Odpověď obsahuje `1)` `2)` `3)` a jen jednu otázku.
+**PASS:** Odpověď obsahuje `Nejdřív napiš brief` a nejvýše jeden příklad.
 **FAIL:** Odpověď obsahuje formulář s více otázkami nebo požadavek na dlouhý text.
 
 ---
 
 ## Test 3 — Role separation
 
-**Vstup:** `tema láska pop cz 1` → `0`
+**Vstup:** `tema láska pop cz 1` → `GO`
 
 **Očekávání:** Jedno plné kolo obsahuje přesně pořadí: MODERÁTOR (otevření `1/1`), HUDEBNÍK, BÁSNÍK, PROMPTER, KRITIK, MODERÁTOR (uložení stavu). Každá role mluví za sebe.
 
@@ -59,7 +59,7 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 ## Test 5 — Full final workflow separation
 
-**Vstup:** Nech EasyTeam dokončit píseň a požádej o finále (`9`).
+**Vstup:** Nech EasyTeam po `GO` dokončit všechna kola a final gate.
 
 **Očekávání:** Po dokončení všech kol i finalním `PASS` výstup obsahuje `--- TITLE ---`, `--- LYRICS ---`, `--- STYLE PROMPT ---`, `--- COVERMASTER ---` a `--- S-COVER ---` jako samostatné sekce.
 
@@ -103,9 +103,9 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 ## Test 9 — Jedna otázka najednou
 
-**Vstup:** `0` bez kontextu, pak na první otázku odpověz číslem.
+**Vstup:** Neúplný brief, kterému chybí výstupní jazyk.
 
-**Očekávání:** Po každé odpovědi následuje právě jedna další otázka, nikdy dvě nebo více.
+**Očekávání:** EasyTeam položí nejvýše jednu krátkou doplňující otázku, nikdy dvě nebo více najednou.
 
 **PASS:** Každá zpráva od EasyTeam obsahuje nejvýše jednu otázku.
 **FAIL:** Některá zpráva obsahuje dvě nebo více otázek najednou.
@@ -118,36 +118,36 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 **Očekávání:** EasyTeam rozumí, neopravuje jazyk, zeptá se jen na výstupní jazyk, pokud není jasný.
 
-**PASS:** EasyTeam přijme vstup bez korekce jazyka. Pokud si není jistý výstupním jazykem, zeptá se jednou krátkou číselnou otázkou (např. "Jazyk výstupu: 1) česky 2) polsky 3) po naszymu?").
+**PASS:** EasyTeam přijme vstup bez korekce jazyka. Pokud si není jistý výstupním jazykem, zeptá se jednou krátkou otázkou (např. "Jaký má být jazyk výstupu?").
 **FAIL:** EasyTeam řekne "Prosím pište spisovně" nebo "Nerozumím, zadejte znovu".
 
 ---
 
-## Test 11 — Numeric precedence
+## Test 11 — `GO` bez ohledu na velikost písmen
 
-**Vstup:** V průběhu práce, když EasyTeam nabídne číslované možnosti (např. "1) ano 2) ne 3) změnit"), napiš `3`.
+**Vstup:** Ve čtyřech nových sessions po briefu postupně použij `GO`, `go`, `Go`, `gO`.
 
-**Očekávání:** `3` vybere třetí možnost, NE globální příkaz (změna stylu).
+**Očekávání:** Každá varianta spustí AUTO. Text obsahující `GO` jako část delší zprávy se za příkaz nepovažuje.
 
-**PASS:** EasyTeam interpretuje `3` jako výběr z nabízených možností.
-**FAIL:** EasyTeam interpretuje `3` jako globální příkaz "změň hudební směr".
+**PASS:** Všechny čtyři samostatné varianty fungují stejně a náhodný výskyt `go` v delším textu AUTO nespustí.
+**FAIL:** Rozhoduje velikost písmen nebo AUTO spustí nesamostatný výskyt `go`.
 
 ---
 
-## Test 12 — České `ano`
+## Test 12 — Stručná nápověda `?`
 
-**Vstup:** V odpověď na nabídku napiš `ano`.
+**Vstup:** `?`
 
-**Očekávání:** EasyTeam to bere jako `ano` a pokračuje.
+**Očekávání:** EasyTeam stručně ukáže formát briefu, jeden příklad, příkaz `GO`, průběh AUTO a finální artefakty. Stav se nezmění.
 
-**PASS:** EasyTeam přijme `ano` jako souhlas a pokračuje.
-**FAIL:** EasyTeam nerozumí nebo vyžaduje nečeský ekvivalent souhlasu.
+**PASS:** Nápověda obsahuje pouze uživatelské informace `GO` a `?`, bez interních příkazů či tuningu.
+**FAIL:** Nápověda ukazuje `0`–`9`, `ano/ne`, technické stavy nebo tuningové menu.
 
 ---
 
 ## Test 13 — COVERMASTER activation timing
 
-**Vstup:** `tema rytir metal cz 2` → `0`; během kola požádej o cover před schválením finálních Lyrics, Style Promptu a názvu.
+**Vstup:** `tema rytir metal cz 2` → `GO`; během kola požádej o cover před schválením finálních Lyrics, Style Promptu a názvu.
 
 **Očekávání:** EasyTeam nespustí COVERMASTER během skladatelských kol ani po posledním kole před finalním `PASS`. Vysvětlí krátce, že nejprve musí dokončit TITLE, Lyrics, Style Prompt a final gate.
 
@@ -158,7 +158,7 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 ## Test 14 — S-cover dimensions and ratios
 
-**Vstup:** Po finále (`9`) zkontroluj `--- S-COVER ---`.
+**Vstup:** Po automatickém finále zkontroluj `--- S-COVER ---`.
 
 **Očekávání:** S-cover uvádí přesnou velikost `543 × 807 px`, poměr `543:807` a zjednodušený poměr `181:269`.
 
@@ -180,7 +180,7 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 ## Test 16 — S-cover story consistency
 
-**Vstup:** Vytvoř píseň se smutným nebo tragickým koncem a požádej o finále (`9`).
+**Vstup:** Vytvoř po `GO` píseň se smutným nebo tragickým koncem.
 
 **Očekávání:** COVERMASTER zachová skutečný konec příběhu a nevytvoří falešně pozitivní vizuální interpretaci.
 
@@ -202,7 +202,7 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 ## Test 18 — Brief s 1 kolem
 
-**Vstup:** `tema rytir metal cz 1` → `0`
+**Vstup:** `tema rytir metal cz 1` → `GO`
 
 **Očekávání:** EasyTeam nastaví `total_rounds: 1`, provede právě jedno plné šestietapové kolo a poté finální kontrolu MODERÁTOR a final gate KRITIK.
 
@@ -213,7 +213,7 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 ## Test 19 — Brief se 3 koly
 
-**Vstup:** `tema rytir metal cz 3` → `0`
+**Vstup:** `tema rytir metal cz 3` → `GO`
 
 **Očekávání:** EasyTeam automaticky provede tři plná kola bez otázky mezi nimi.
 
@@ -224,7 +224,7 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 ## Test 20 — Brief s 5 koly
 
-**Vstup:** `tema reggae pl 5` → `0`
+**Vstup:** `tema reggae pl 5` → `GO`
 
 **Očekávání:** EasyTeam automaticky provede pět plných kol bez otázky mezi nimi.
 
@@ -235,7 +235,7 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 ## Test 21 — Brief bez počtu kol
 
-**Vstup:** `tema more pop cz` → `0`
+**Vstup:** `tema more pop cz` → `GO`
 
 **Očekávání:** EasyTeam použije bezpečný default `total_rounds: 2` bez další otázky o počtu kol.
 
@@ -268,7 +268,7 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 ## Test 24 — PROMPTER v každém kole
 
-**Vstup:** `tema reggae pl 3` → `0`
+**Vstup:** `tema reggae pl 3` → `GO`
 
 **Očekávání:** PROMPTER vystoupí právě jednou v každém ze tří plných kol po BÁSNÍK a před KRITIK a aktualizuje celý anglický Style Prompt.
 
@@ -284,7 +284,7 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 **Očekávání:** Ve všech třech případech EasyTeam COVERMASTER nespustí. Aktivace nastane až po finalním `PASS`.
 
 **PASS:** Stav zůstává mimo `cover_creation`, dokud `final_gate` není `pass`.
-**FAIL:** Pouhé dokončení počtu kol, příkaz `9`, `0` nebo `ano` obejde final gate.
+**FAIL:** Dokončení počtu kol nebo příkaz `GO` obejde final gate.
 
 ---
 
@@ -299,14 +299,14 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 ---
 
-## Test 27 — Příkazy `0`, `8`, `9`, `ano`, `ne`
+## Test 27 — Pouze `GO` a `?`
 
-**Vstup:** Během session postupně použij `0`, `8`, `ne`, vyber alternativu, použij `ano` a před dokončením kol použij `9`.
+**Vstup:** Pošli krátký brief, `GO`, potom v nové session `?`. Samostatně pošli `0`, `8`, `9`, `ano` a `ne`.
 
-**Očekávání:** `0` spustí/obnoví AUTO; `8` pouze zobrazí stav; `ne` pozastaví a nabídne 3 alternativy; `ano` přijme doporučení bez obcházení chyb; `9` dokončí zbývající kola a final gate před COVERMASTER.
+**Očekávání:** Pouze samostatné `GO` spouští AUTO a `?` zobrazuje nápovědu. Staré příkazy nejsou interpretovány jako globální akce hlavního projektu.
 
-**PASS:** Každý příkaz zachová stavovou logiku, žádný nepřeskočí plné kolo ani final `PASS`.
-**FAIL:** `8` mění stav, `ne` je ignorováno, `ano` schválí `FAIL`, nebo `9` spustí COVERMASTER před finalním `PASS`.
+**PASS:** `0`, `8`, `9`, `ano` a `ne` nespustí role, nezmění artefakty ani neotevřou tuningové menu.
+**FAIL:** Kterýkoli starý příkaz provede původní globální akci.
 
 ---
 
@@ -314,7 +314,7 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 **Vstup:** `Michal opět hraje Old School RuneScape, punk, česky, 3 rundy` bez další zprávy.
 
-**Očekávání:** Hlavní prompt má nejvýše 8000 znaků a je vložen přímo do Project Instructions bez loaderu. EasyTeam po samotném briefu pouze nastaví `current_round: 0`, `status: initialization`, `open_decision: awaiting_auto_start` a požádá o `0`. Po samostatném `0` provede přesně tři plná kola. PROMPTER je v každém kole, český výstup bez požadavku na nářečí používá standardní tvary, final gate vrátí `PASS` až po opravách a COVERMASTER následuje teprve potom.
+**Očekávání:** Hlavní prompt má nejvýše 8000 znaků a je vložen přímo do Project Instructions bez loaderu. EasyTeam po samotném briefu pouze nastaví `current_round: 0`, `status: initialization`, `open_decision: awaiting_go` a požádá o `GO`. Po samostatném `GO` provede přesně tři plná kola. PROMPTER je v každém kole, český výstup bez požadavku na nářečí používá standardní tvary, final gate vrátí `PASS` až po opravách a COVERMASTER následuje teprve potom. Po finálním výstupu session skončí bez tuningového menu.
 
-**PASS:** Brief sám nespustí kolo; po `0` se objeví přesně `Kolo 1/3`, `2/3`, `3/3`, každé se šesti etapami. Finální TITLE, Lyrics, Style Prompt, COVERMASTER a S-COVER vzniknou až po `final_gate: pass`; české Lyrics neobsahují neodůvodněný tvar `Nový hry`.
-**FAIL:** Prompt přesahuje 8000 znaků, potřebuje druhý source, brief spustí AUTO bez `0`, chybí kolo/role, KRITIK schválí chybný český tvar nebo COVERMASTER předběhne finalní `PASS`.
+**PASS:** Brief sám nespustí kolo; po `GO` se objeví přesně `Kolo 1/3`, `2/3`, `3/3`, každé se šesti etapami. Finální TITLE, Lyrics, Style Prompt, COVERMASTER a S-COVER vzniknou až po `final_gate: pass`; české Lyrics neobsahují neodůvodněný tvar `Nový hry`; konec neobsahuje tuningové menu.
+**FAIL:** Prompt přesahuje 8000 znaků, potřebuje druhý source, brief spustí AUTO bez `GO`, chybí kolo/role, KRITIK schválí chybný český tvar, COVERMASTER předběhne finalní `PASS` nebo hlavní projekt nabídne tuning.

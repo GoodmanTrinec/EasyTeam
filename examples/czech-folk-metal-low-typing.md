@@ -7,7 +7,7 @@ Ukázka zkráceného transcriptu. Každý výstup BÁSNÍK v reálné session ob
 ```text
 UŽIVATEL: tema rytir metal cz 3
 EasyTeam: Brief: rytíř, metal, česky, 3 kola. `total_rounds: 3`.
-UŽIVATEL: 0
+UŽIVATEL: GO
 ```
 
 AUTO se mezi koly neptá na pokračování.

@@ -27,11 +27,11 @@ Tento deník zaznamenává klíčová rozhodnutí o směřování EasyTeam proje
 
 ### 2026-07-19 — Low-typing interakce
 
-**Rozhodnutí:** UŽIVATEL píše jen `0`-`9`, `ano`/`ne`, nebo krátký brief. Žádné dlouhé věty.
+**Rozhodnutí (nahrazeno 2026-07-22):** UŽIVATEL píše jen `0`-`9`, `ano`/`ne`, nebo krátký brief. Žádné dlouhé věty.
 
 **Důvody:** UŽIVATEL píše pomalu a chce minimum psaní.
 
-**Dopad:** Všechny prompty musí podporovat číselné příkazy a `ano`/`ne`. Nikdy nevyžadovat `MODERÁTOR, zahaj kolo 1`.
+**Historický dopad:** Prompty podporovaly číselné příkazy a `ano`/`ne`. Toto rozhraní později nahradily samostatné příkazy `GO` a `?`.
 
 ---
 
@@ -73,7 +73,7 @@ Tento deník zaznamenává klíčová rozhodnutí o směřování EasyTeam proje
 
 **Dopad:**
 
-- `tema rytir metal cz 3` nastaví 3 plná kola, `tema reggae pl 5` nastaví 5; brief bez počtu nastaví 2. Samotné spuštění AUTO vyžaduje příkaz `0`.
+- `tema rytir metal cz 3` nastaví 3 plná kola, `tema reggae pl 5` nastaví 5; brief bez počtu nastaví 2. Původně spuštění AUTO vyžadovalo příkaz `0`; aktuální příkaz je `GO`.
 - AUTO se mezi koly neptá na pokračování.
 - PROMPTER je povinný v každém kole.
 - BÁSNÍK navrhne TITLE nejpozději v prvním kole a aktualizuje ho po změně příběhu.
@@ -94,8 +94,18 @@ Tento deník zaznamenává klíčová rozhodnutí o směřování EasyTeam proje
 
 ### 2026-07-22 — Jednosouborové nasazení v1.1
 
-**Rozhodnutí:** Jediný `prompts/chatgpt-project-instructions.md` musí zůstat pod limitem 8000 znaků a vkládá se přímo do pole ChatGPT Project Instructions. Samotný brief pouze inicializuje stav a AUTO spouští až samostatný příkaz `0`.
+**Rozhodnutí:** Jediný `prompts/chatgpt-project-instructions.md` musí zůstat pod limitem 8000 znaků a vkládá se přímo do pole ChatGPT Project Instructions. Samotný brief pouze inicializuje stav; původní start `0` byl později nahrazen příkazem `GO`.
 
 **Důvody:** Živý test odhalil limit 8000 znaků v Project Instructions, automatický start bez `0` a příliš mírnou kontrolu standardní češtiny.
 
 **Dopad:** Není potřeba loader ani duplicitní project source. Prompt je stručnější, protokol krátkých příkazů je jednoznačný a KRITIK rozlišuje tolerantní vstup UŽIVATELE od jazykově správného finálního výstupu.
+
+---
+
+### 2026-07-22 — Jednoznačný start `GO`
+
+**Rozhodnutí:** Hlavní EasyTeam používá pouze samostatné příkazy `GO` a `?`. `GO` po načtení briefu spustí celé AUTO; `?` zobrazí stručnou nápovědu. Původní globální příkazy `0`–`9`, `ano` a `ne` jsou z hlavního projektu odstraněny.
+
+**Důvody:** Číselné příkazy řídily interní role místo skutečného uživatelského workflow a nedávaly smysl před poslechem výsledku v Suno. `GO` je krátké, srozumitelné napříč jazyky a méně nejednoznačné než `R`.
+
+**Dopad:** Brief vždy čeká na `GO`, AUTO proběhne bez uživatelských voleb až do finálního výstupu a session skončí. Tuning není součástí hlavního projektu; později vznikne jako samostatný projekt.

@@ -19,12 +19,10 @@ Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem ps
 
 ## Interakce
 
-- **Low-typing**: stačí `0`, `ano`/`ne`, nebo číselná volba.
-- `0` = AUTO start nebo pokračování
-- `ano` = přijmout doporučenou volbu
-- `ne` = zastavit a nabídnout 3 alternativy
-- 1/2/3 = výběr z nabízených možností
-- ? = nápověda
+- **Low-typing**: stačí krátký brief a samostatné `GO`.
+- `GO` = AUTO start po načtení briefu; velikost písmen se neřeší.
+- `?` = stručná nápověda.
+- Čísla `0`–`9`, `ano` a `ne` nejsou globální příkazy hlavního projektu.
 
 ## Pravidla
 
@@ -32,7 +30,7 @@ Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem ps
 - Pokud by něco vyžadovalo platbu, EasyTeam pouze varuje a nepřipojí to.
 - GitHub je primární zdroj pravdy; do repozitáře patří jen oficiální markdown, příklady, QA a konfigurace.
 - Počet kol v AUTO pochází z briefu; chybějící počet znamená 2 kola.
-- Samotný brief pouze inicializuje stav a čeká na samostatný příkaz `0`; bez něj AUTO nezačne.
+- Samotný brief pouze inicializuje stav a čeká na samostatný příkaz `GO`; bez něj AUTO nezačne.
 - Plné kolo je **MODERÁTOR → HUDEBNÍK → BÁSNÍK → PROMPTER → KRITIK → MODERÁTOR** a AUTO se mezi koly neptá.
 - Stav obsahuje `current_title`, `current_lyrics` a `current_style`; TITLE vznikne nejpozději v prvním kole a sleduje změny příběhu.
 - Po všech kolech následuje samostatný final gate KRITIK; COVERMASTER se aktivuje pouze po `PASS`.
@@ -54,8 +52,8 @@ Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem ps
 - prompts/roles/user.md — role UŽIVATEL
 - workflows/short-commands.md — protokol krátkých příkazů
 - examples/czech-folk-metal-low-typing.md — ukázka low-typing session
-- examples/pop-ballad-yes-no.md — ukázka s ano/ne
-- examples/empty-zero-recovery.md — ukázka prázdného startu
+- examples/pop-ballad-auto.md — ukázka plného AUTO bez mezikroků
+- examples/empty-go-recovery.md — ukázka `GO` bez briefu
 - qa/critic-rubric.md — kritéria hodnocení kvality
 - qa/prompt-regression-checklist.md — regresní checklist
 - qa/regression-test-results.md — poslední výsledky logických regresních testů

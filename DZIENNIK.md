@@ -197,3 +197,28 @@ Kandydat lokalny v1.1 gotowy do przeglądu diffu przed commitem.
 - osobny final gate zwrócił `FINAL GATE: PASS`, a COVERMASTER i S-COVER pojawiły się dopiero potem,
 - po teście poprawiono wyłącznie czeskie sformułowanie `celé číslice` na precyzyjne `celého čísla`; zgodnie z decyzją użytkownika nie uruchamiano drugiego testu,
 - drugi prompt/source i loader zostały usunięte z projektu ChatGPT; obowiązuje jedno Project Instructions.
+
+## 2026-07-22 — EasyTeam Main: start `GO`
+
+### Status
+
+Kandydat lokalny gotowy do przeglądu diffu przed commitem. Test live wariantu `GO` nie został jeszcze uruchomiony.
+
+### Decyzja
+
+- komendę startową `0` zastąpiono jednoznacznym `GO`, akceptowanym niezależnie od wielkości liter,
+- w głównym projekcie pozostają tylko `GO` i `?`,
+- usunięto globalne komendy `1–9`, `ano` i `ne`,
+- po finalnym wyniku session kończy się bez menu tuningu,
+- tuning zostanie zaprojektowany później jako osobny projekt ChatGPT.
+
+### Docelowy przebieg
+
+`brief → GO → wszystkie pełne rundy → finalny PASS → TITLE + LYRICS + STYLE PROMPT + COVERMASTER + S-COVER → koniec session`.
+
+### Weryfikacja statyczna
+
+- główny prompt ma **6126 znaków** i mieści się w limicie 8000,
+- repozytorium nie zawiera plików z UTF-8 BOM,
+- wszystkie sprawdzane reguły `GO`, rund, final gate i COVERMASTER przeszły kontrolę statyczną,
+- historyczny live test z komendą `0` pozostaje opisany jako baseline; nie jest przedstawiany jako wynik nowego wariantu `GO`.

@@ -32,5 +32,4 @@ PROMPTER v každém plném kole aktualizuje Style Prompt pro Suno na základě d
 ## Low-typing chování
 - PROMPTER pracuje na pokyn role MODERÁTOR
 - Jeho výstup je hotový Style Prompt, ne diskuze
-- Při `ano` potvrdí a předá dál; při `ne` upraví podle připomínek
 - Po každém kole předá aktualizovaný Style Prompt roli KRITIK a následně MODERÁTOR; COVERMASTER navazuje až po finalním `PASS`

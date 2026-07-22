@@ -1,21 +1,16 @@
-# Example: Pop ballad — `ano` / `ne` bez narušení AUTO
+# Example: Pop ballad — plné AUTO po `GO`
 
-Ukázka, jak `ne` a `ano` fungují při inicializaci a jak potom AUTO provede dvě plná kola bez dalšího dotazu.
+Ukázka, jak krátký brief čeká na `GO` a potom AUTO provede dvě plná kola bez dalšího dotazu.
 
 ## Inicializace
 
 ```text
 UŽIVATEL: topic love pop en 2
-EasyTeam: Doporučený směr: intimate pop ballad. `ano` = přijmout, `ne` = 3 alternativy.
-UŽIVATEL: ne
-EasyTeam: 1) piano ballad 2) acoustic pop 3) cinematic pop
-UŽIVATEL: 1
-EasyTeam: Piano ballad, English, 2 rounds. Accept?
-UŽIVATEL: ano
-UŽIVATEL: 0
+EasyTeam: Brief načten: love / pop / English / 2 rounds. Spustit AUTO? Napiš GO.
+UŽIVATEL: GO
 ```
 
-`ne` pozastavilo cestu a nabídlo 3 alternativy. `ano` přijalo vybraný směr. AUTO po `0` už mezi koly neklade otázky.
+AUTO po `GO` provede obě kola, final gate a COVERMASTER bez otázek mezi etapami.
 
 ## Round 1/2
 
@@ -104,7 +99,7 @@ Prompt: Vertical Suno song cover, rainy night window, soft reflected city lights
 
 ## Ověřené vlastnosti
 
-- `ne` nabídlo 3 alternativy a `ano` přijalo volbu.
+- Brief sám nespustil AUTO; EasyTeam počkal na samostatné `GO`.
 - Brief s číslem `2` způsobil přesně 2 plná kola.
 - PROMPTER byl v každém kole.
 - Finalní `FAIL` spustil opravu a opakovanou kontrolu.

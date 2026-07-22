@@ -28,7 +28,7 @@ Finální workflow je:
 
 - Počet kol pochází z posledního samostatného kladného celého čísla v briefu: `tema rytir metal cz 3` nastaví 3 plná kola, `tema reggae pl 5` nastaví 5.
 - Když brief počet kol neobsahuje, EasyTeam použije bezpečný default 2 kola.
-- Samotný brief pouze inicializuje stav. AUTO začne až po samostatném příkazu `0` (nebo explicitním dokončovacím příkazu `9`).
+- Samotný brief pouze inicializuje stav. AUTO začne až po samostatném příkazu `GO`.
 - AUTO provede všechna kola bez otázek mezi nimi.
 - Jedno plné kolo vždy obsahuje MODERÁTOR → HUDEBNÍK → BÁSNÍK → PROMPTER → KRITIK → MODERÁTOR.
 - PROMPTER se účastní každého kola; Style Prompt se vyvíjí souběžně s Lyrics.
@@ -128,7 +128,7 @@ Pokud je požadovaný výstup česky a brief výslovně nežádá nářečí neb
    tema rytir metal cz 3
    ```
 
-3. EasyTeam pouze potvrdí brief a počká. Poté napiš `0` pro AUTO režim.
+3. EasyTeam pouze potvrdí brief a počká. Poté napiš `GO` pro AUTO režim.
 4. AUTO provede všechna 3 plná kola bez dotazů mezi koly.
 5. Po finalním `PASS` dostaneš `--- TITLE ---`, `--- LYRICS ---`, `--- STYLE PROMPT ---`, `--- COVERMASTER ---` a `--- S-COVER ---`.
 
@@ -144,7 +144,7 @@ Pokud je požadovaný výstup česky a brief výslovně nežádá nářečí neb
 | `prompts/roles/critic.md` | Role KRITIK |
 | `prompts/roles/covermaster.md` | Role COVERMASTER |
 | `prompts/roles/user.md` | Role UŽIVATEL |
-| `workflows/short-commands.md` | Protokol krátkých příkazů (0-9, ano/ne) |
+| `workflows/short-commands.md` | Protokol hlavních příkazů (`GO`, `?`) |
 | `examples/*.md` | Ukázkové session |
 | `qa/critic-rubric.md` | Kritéria hodnocení kvality |
 | `qa/prompt-regression-checklist.md` | Regresní checklist pro změny v promptech |
@@ -157,19 +157,10 @@ Pokud je požadovaný výstup česky a brief výslovně nežádá nářečí neb
 
 | Příkaz | Význam |
 |---|---|
-| `0` | AUTO start / pokračování |
-| `1` | Zobraz 3 možnosti |
-| `2` | Vylepši text |
-| `3` | Změň styl |
-| `4` | Posílit refrén |
-| `5` | Zkrátit |
-| `6` | Více emocí |
-| `7` | Více komerční |
-| `8` | Zobraz stav včetně TITLE, Lyrics, Style, čísla kola a chyb; nic neměň |
-| `9` | Dokonči zbývající kola a final gate; COVERMASTER spusť jen po `PASS` |
-| `ano` | Souhlas |
-| `ne` | Zastavit, nabídnout alternativy |
+| `GO` | Spusť AUTO po načtení briefu; přijímá se bez ohledu na velikost písmen |
 | `?` | Nápověda |
+
+Po finalním výstupu session končí. Hlavní EasyTeam neobsahuje tuning; ten bude později samostatným projektem. Nový brief zahájí novou píseň od čistého stavu a znovu čeká na `GO`.
 
 ## Cenová politika
 
