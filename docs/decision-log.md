@@ -73,7 +73,7 @@ Tento deník zaznamenává klíčová rozhodnutí o směřování EasyTeam proje
 
 **Dopad:**
 
-- `tema rytir metal cz 3` spustí 3 plná kola, `tema reggae pl 5` spustí 5; brief bez počtu spustí 2.
+- `tema rytir metal cz 3` nastaví 3 plná kola, `tema reggae pl 5` nastaví 5; brief bez počtu nastaví 2. Samotné spuštění AUTO vyžaduje příkaz `0`.
 - AUTO se mezi koly neptá na pokračování.
 - PROMPTER je povinný v každém kole.
 - BÁSNÍK navrhne TITLE nejpozději v prvním kole a aktualizuje ho po změně příběhu.
@@ -89,3 +89,13 @@ Tento deník zaznamenává klíčová rozhodnutí o směřování EasyTeam proje
 **Důvody:** Historie provedené práce má být viditelná na GitHubu, ale stavy implementace se nemají míchat s projektovými rozhodnutími.
 
 **Dopad:** Každá významná změna workflow dostane stavový zápis v `DZIENNIK.md`; rozhodnutí měnící pravidla EasyTeam se nadále zapisují zde.
+
+---
+
+### 2026-07-22 — Jednosouborové nasazení v1.1
+
+**Rozhodnutí:** Jediný `prompts/chatgpt-project-instructions.md` musí zůstat pod limitem 8000 znaků a vkládá se přímo do pole ChatGPT Project Instructions. Samotný brief pouze inicializuje stav a AUTO spouští až samostatný příkaz `0`.
+
+**Důvody:** Živý test odhalil limit 8000 znaků v Project Instructions, automatický start bez `0` a příliš mírnou kontrolu standardní češtiny.
+
+**Dopad:** Není potřeba loader ani duplicitní project source. Prompt je stručnější, protokol krátkých příkazů je jednoznačný a KRITIK rozlišuje tolerantní vstup UŽIVATELE od jazykově správného finálního výstupu.

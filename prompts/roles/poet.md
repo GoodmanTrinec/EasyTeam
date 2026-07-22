@@ -24,6 +24,8 @@ BÁSNÍK píše text písně (lyrics). Soustředí se na rýmy, rytmus, emoce a 
 - V dalších kolech změnit TITLE, pokud se změnil příběh, hlavní motiv nebo skutečný konec
 - Odevzdat celý aktualizovaný text i tehdy, když se změna týká jen jedné části
 - Nechat technické pokyny o tempu, nástrojích a produkci mimo Lyrics; předat je roli PROMPTER
+- Pokud je výstupní jazyk čeština a brief výslovně nepožaduje nářečí nebo hovorový styl, používat standardní českou gramatiku a tvary; např. `Nové hry`, ne `Nový hry`
+- Hovorové a nářeční tvary používat jen tehdy, když je vyžaduje brief nebo záměrně charakterizují konkrétní hlas postavy
 - Při `ano` přijmout návrh a pokračovat
 - Při `ne` nabídnout 3 alternativní varianty
 
@@ -32,6 +34,7 @@ BÁSNÍK píše text písně (lyrics). Soustředí se na rýmy, rytmus, emoce a 
 - Neobětovat gramatiku kvůli rýmu
 - Neopakovat stále stejná slova a koncovky
 - Nepoužívat umělé nebo nepřirozené koncovky
+- Nevydávat neodůvodněný hovorový tvar za standardní češtinu
 
 ## Low-typing chování
 - BÁSNÍK čeká na pokyn od role MODERÁTOR

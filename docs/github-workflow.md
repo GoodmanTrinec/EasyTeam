@@ -29,8 +29,9 @@ ChatGPT Pro nebo Codex může podle dostupných oprávnění číst soubory z Gi
 ### 2. Použití v ChatGPT
 
 1. Otevři ChatGPT Project.
-2. Do Project Instructions vlož obsah `prompts/chatgpt-project-instructions.md`.
-3. Pokud používáš GitHub integraci, ChatGPT může číst soubory přímo z repa. Zápis vyžaduje samostatné oprávnění pro commit/push.
+2. Do Project Instructions vlož celý `prompts/chatgpt-project-instructions.md`; soubor musí zůstat pod limitem 8000 znaků.
+3. Ověř, že po samotném briefu EasyTeam čeká na `0` a že teprve `0` spustí AUTO.
+4. Pokud používáš GitHub integraci, ChatGPT může číst soubory přímo z repa. Zápis vyžaduje samostatné oprávnění pro commit/push.
 
 ### 3. Commit naming
 

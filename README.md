@@ -26,8 +26,9 @@ Finální workflow je:
 
 ## AUTO a počet kol
 
-- Počet kol pochází z posledního samostatného kladného celého čísla v briefu: `tema rytir metal cz 3` spustí 3 plná kola, `tema reggae pl 5` spustí 5.
+- Počet kol pochází z posledního samostatného kladného celého čísla v briefu: `tema rytir metal cz 3` nastaví 3 plná kola, `tema reggae pl 5` nastaví 5.
 - Když brief počet kol neobsahuje, EasyTeam použije bezpečný default 2 kola.
+- Samotný brief pouze inicializuje stav. AUTO začne až po samostatném příkazu `0` (nebo explicitním dokončovacím příkazu `9`).
 - AUTO provede všechna kola bez otázek mezi nimi.
 - Jedno plné kolo vždy obsahuje MODERÁTOR → HUDEBNÍK → BÁSNÍK → PROMPTER → KRITIK → MODERÁTOR.
 - PROMPTER se účastní každého kola; Style Prompt se vyvíjí souběžně s Lyrics.
@@ -99,6 +100,8 @@ Musí kontrolovat shodu mezi podmětem a přísudkem, správné vazby mezi slovy
 
 Rým nesmí být vytvořen za cenu gramatické chyby nebo nepřirozené formulace.
 
+Pokud je požadovaný výstup česky a brief výslovně nežádá nářečí nebo hovorový styl, TITLE a Lyrics musí používat standardní české tvary. Tolerance smíšeného vstupu UŽIVATELE neznamená toleranci neodůvodněných chyb ve finálním textu; například `Nový hry` musí KRITIK odmítnout a opravit na `Nové hry`.
+
 ## Základní pravidla EasyTeam
 
 - Stav obsahuje `current_title`, `current_lyrics`, `current_style`, `current_round` a `total_rounds`.
@@ -118,14 +121,14 @@ Rým nesmí být vytvořen za cenu gramatické chyby nebo nepřirozené formulac
 
 ## Rychlý start
 
-1. Otevři ChatGPT Project a do **Project Instructions** vlož obsah souboru `prompts/chatgpt-project-instructions.md`.
+1. Do pole **Project Instructions** vlož celý obsah `prompts/chatgpt-project-instructions.md`. Hlavní prompt má méně než 8000 znaků a nepotřebuje loader ani druhý project source.
 2. Napiš krátký brief, např.:
 
    ```text
    tema rytir metal cz 3
    ```
 
-3. Poté napiš `0` pro AUTO režim.
+3. EasyTeam pouze potvrdí brief a počká. Poté napiš `0` pro AUTO režim.
 4. AUTO provede všechna 3 plná kola bez dotazů mezi koly.
 5. Po finalním `PASS` dostaneš `--- TITLE ---`, `--- LYRICS ---`, `--- STYLE PROMPT ---`, `--- COVERMASTER ---` a `--- S-COVER ---`.
 
@@ -133,7 +136,7 @@ Rým nesmí být vytvořen za cenu gramatické chyby nebo nepřirozené formulac
 
 | Cesta | Obsah |
 |---|---|
-| `prompts/chatgpt-project-instructions.md` | **Hlavní prompt** — vlož do ChatGPT Project Instructions |
+| `prompts/chatgpt-project-instructions.md` | **Hlavní prompt** — vlož přímo do ChatGPT Project Instructions |
 | `prompts/roles/moderator.md` | Role MODERÁTOR |
 | `prompts/roles/poet.md` | Role BÁSNÍK |
 | `prompts/roles/musician.md` | Role HUDEBNÍK |

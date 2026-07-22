@@ -42,10 +42,14 @@ Výsledek kontroly je jednoznačný:
 
 **PASS:** Všechny tvary jsou gramaticky správné, přirozené.
 - `" tys mi slíbila "` — správné časování, shoda
+- `"Nové hry nabízejí svůj lesk"` — standardní česká shoda přídavného jména s podstatným jménem
 
 **FAIL:** Rým vynutil nesprávný pád, rod, čas nebo nepřirozený tvar.
 - `"Šel jsem do lesa / Kde rostla krása"` — `lesa` je 2. pád, ale `krása` je 1. pád; rým tlačí nesprávnou vazbu
 - `"Chtěl jsem ti dát květinách"` — chybný pád kvůli rýmu
+- `"Nový hry mu cpou svůj lesk"` — neodůvodněná obecná čeština v textu požadovaném jako standardní český výstup; oprava `"Nové hry mu nabízejí svůj lesk"`
+
+**KRITIK musí:** Rozlišovat jazyk vstupu a výstupu. Smíšený nebo nářeční vstup UŽIVATELE neopravuje. Ve finálním TITLE a Lyrics však vyžaduje standardní češtinu, pokud brief výslovně nepožaduje nářečí, slang nebo hovorovou stylizaci postavy.
 
 ---
 

@@ -307,3 +307,14 @@ Lze spustit ručně nebo agentem. Všechny testy jsou zdarma — nevyžadují ž
 
 **PASS:** Každý příkaz zachová stavovou logiku, žádný nepřeskočí plné kolo ani final `PASS`.
 **FAIL:** `8` mění stav, `ne` je ignorováno, `ano` schválí `FAIL`, nebo `9` spustí COVERMASTER před finalním `PASS`.
+
+---
+
+## Test 28 — v1.1 live acceptance
+
+**Vstup:** `Michal opět hraje Old School RuneScape, punk, česky, 3 rundy` bez další zprávy.
+
+**Očekávání:** Hlavní prompt má nejvýše 8000 znaků a je vložen přímo do Project Instructions bez loaderu. EasyTeam po samotném briefu pouze nastaví `current_round: 0`, `status: initialization`, `open_decision: awaiting_auto_start` a požádá o `0`. Po samostatném `0` provede přesně tři plná kola. PROMPTER je v každém kole, český výstup bez požadavku na nářečí používá standardní tvary, final gate vrátí `PASS` až po opravách a COVERMASTER následuje teprve potom.
+
+**PASS:** Brief sám nespustí kolo; po `0` se objeví přesně `Kolo 1/3`, `2/3`, `3/3`, každé se šesti etapami. Finální TITLE, Lyrics, Style Prompt, COVERMASTER a S-COVER vzniknou až po `final_gate: pass`; české Lyrics neobsahují neodůvodněný tvar `Nový hry`.
+**FAIL:** Prompt přesahuje 8000 znaků, potřebuje druhý source, brief spustí AUTO bez `0`, chybí kolo/role, KRITIK schválí chybný český tvar nebo COVERMASTER předběhne finalní `PASS`.

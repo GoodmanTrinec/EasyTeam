@@ -10,7 +10,7 @@ Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem ps
 | README.md | Úvod, koncept, historie projektu |
 | INDEX.md | **Tento soubor** — mapa celého projektu |
 | DZIENNIK.md | Oficiální chronologický deník průběhu a stavu projektu |
-| prompts/ | Hlavní prompt pro ChatGPT Project Instructions |
+| prompts/ | Hlavní prompt pro ChatGPT Project Instructions a definice rolí |
 | prompts/roles/ | Modulární definice rolí (MODERÁTOR, BÁSNÍK, HUDEBNÍK, KRITIK, PROMPTER, COVERMASTER, UŽIVATEL) |
 | workflows/ | Protokoly a pravidla interakce |
 | examples/ | Ukázkové session s minimálním psaním |
@@ -32,16 +32,19 @@ Cílem je tvorba písní pro Suno pomocí multi-agentního workflow s minimem ps
 - Pokud by něco vyžadovalo platbu, EasyTeam pouze varuje a nepřipojí to.
 - GitHub je primární zdroj pravdy; do repozitáře patří jen oficiální markdown, příklady, QA a konfigurace.
 - Počet kol v AUTO pochází z briefu; chybějící počet znamená 2 kola.
+- Samotný brief pouze inicializuje stav a čeká na samostatný příkaz `0`; bez něj AUTO nezačne.
 - Plné kolo je **MODERÁTOR → HUDEBNÍK → BÁSNÍK → PROMPTER → KRITIK → MODERÁTOR** a AUTO se mezi koly neptá.
 - Stav obsahuje `current_title`, `current_lyrics` a `current_style`; TITLE vznikne nejpozději v prvním kole a sleduje změny příběhu.
 - Po všech kolech následuje samostatný final gate KRITIK; COVERMASTER se aktivuje pouze po `PASS`.
 - Výstupem je vždy **TITLE → Lyrics → Style Prompt → COVERMASTER → S-cover**.
 - S-cover používá přesnou velikost **543 × 807 px**, poměr **543:807** a zjednodušený poměr **181:269**.
 - Vstup toleruje mix PL/CZ/EN a nářečí po naszymu.
+- Český výstup je standardní čeština, pokud brief výslovně nepožaduje nářečí nebo hovorový styl.
+- Jediný `prompts/chatgpt-project-instructions.md` se vkládá přímo do Project Instructions a musí zůstat pod limitem 8000 znaků.
 
 ## Plánované artefakty
 
-- prompts/chatgpt-project-instructions.md — hlavní prompt pro ChatGPT
+- prompts/chatgpt-project-instructions.md — hlavní prompt vkládaný přímo do Project Instructions
 - prompts/roles/moderator.md — role MODERÁTOR
 - prompts/roles/poet.md — role BÁSNÍK
 - prompts/roles/musician.md — role HUDEBNÍK

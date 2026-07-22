@@ -166,3 +166,34 @@ Zakończone i połączone z gałęzią `main`.
 ### Granice projektu
 
 EasyTeam pozostaje zestawem promptów Markdown dla ChatGPT Project. Nie zawiera aplikacji, backendu, bazy danych ani osobnej roli generującej gotowy plik graficzny.
+
+## 2026-07-22 — EasyTeam v1.1: poprawki po teście live
+
+### Status
+
+Kandydat lokalny v1.1 gotowy do przeglądu diffu przed commitem.
+
+### Problemy wykryte w teście live
+
+- pełny prompt ma więcej niż 8000 znaków i nie mieści się w polu ChatGPT Project Instructions,
+- sam brief uruchomił AUTO bez oczekiwania na komendę `0`,
+- KRYTYK zaakceptował nieuzasadnioną formę `Nový hry` w czeskim tekście.
+
+### Poprawki v1.1
+
+- skrócono pojedynczy `prompts/chatgpt-project-instructions.md` do mniej niż 8000 znaków; loader i drugi project source nie są potrzebne,
+- sam brief ustawia stan inicjalizacji i czeka na osobne `0`,
+- rozdzielono tolerancję mieszanego wejścia użytkownika od obowiązku standardowego czeskiego wyjścia,
+- POETA i KRYTYK otrzymali jednoznaczne reguły dla form `Nový hry` → `Nové hry`,
+- dokumentację instalacji ujednolicono z rzeczywistym limitem ChatGPT Project.
+
+### Weryfikacja
+
+- główny prompt: **5973 znaki**, poniżej limitu 8000,
+- wykonano dokładnie jeden test akceptacyjny live: **1 PASS / 0 FAIL**,
+- sam brief poprawnie czekał na osobne `0`,
+- po `0` wykonano dokładnie trzy pełne rundy, a PROMPTER, KRYTYK i końcowy MODERATOR wystąpili w każdej,
+- błędy z rund 1 i 2 zostały przekazane do kolejnych rund; TITLE zmienił się z `Ještě jeden level` na `Ještě jeden quest`,
+- osobny final gate zwrócił `FINAL GATE: PASS`, a COVERMASTER i S-COVER pojawiły się dopiero potem,
+- po teście poprawiono wyłącznie czeskie sformułowanie `celé číslice` na precyzyjne `celého čísla`; zgodnie z decyzją użytkownika nie uruchamiano drugiego testu,
+- drugi prompt/source i loader zostały usunięte z projektu ChatGPT; obowiązuje jedno Project Instructions.
